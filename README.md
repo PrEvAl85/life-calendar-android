@@ -121,12 +121,23 @@ gradlew assembleRelease
 
 ## Поддержать проект
 
-Life Calendar разрабатывается в свободное время, приложение бесплатное и без рекламы. Если оно вам полезно, можно поддержать разработку любым удобным способом:
+Life Calendar создаётся и поддерживается в свободное время, приложение бесплатное и без рекламы. Если оно вам полезно — помогите развитию:
 
-- поставьте ⭐ этому репозиторию на GitHub;
-- расскажите о приложении друзьям и близким;
-- сообщайте об ошибках и предлагайте идеи в [Issues](https://github.com/PrEvAl85/life-calendar-android/issues);
-- пришлите отзыв или слова благодарности — автору приятно.
+- ⭐ **Звезда на GitHub** — [PrEvAl85/life-calendar-android](https://github.com/PrEvAl85/life-calendar-android)
+- 🐛 **Сообщения об ошибках и идеи** — [Issues](https://github.com/PrEvAl85/life-calendar-android/issues)
+- 💬 **Расскажите другим** — поделитесь с теми, кому может быть полезно
+
+**Финансовая поддержка:**
+
+- ☕ **Boosty** — https://boosty.to/pws/donate
+- 🍩 **DonationAlerts** — https://www.donationalerts.com/r/photowithoutstudio
+
+**Криптовалюта:**
+
+- USDT (TRC20): `TRcWS42MhyFRGdGSc6LqTH8CdTy6pLUMn6`
+- USDT (BEP20): `0x0905134db34d8d54abf5b60a55406821ed7b8de0`
+- BTC: `17hDrZL62DBpTjK6xNCGFFG682jN9PiVF1`
+- TON: `UQCzoPJlYLHSoFGmRyh_-_ox1nOMCzx3LwG79xPR5pbjs3Aq`
 
 Спасибо, что пользуетесь Life Calendar!
 
