@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class WeekGridViewModel(app: Application) : AndroidViewModel(app) {
@@ -43,4 +44,18 @@ class WeekGridViewModel(app: Application) : AndroidViewModel(app) {
             eventsByWeek = events.groupBy { Dates.weekKey(LocalDate.parse(it.date)) },
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), UiState())
+
+    fun addEntry(date: LocalDate, text: String) {
+        viewModelScope.launch {
+            ctx.database.entryDao().insert(Entry(date = Dates.iso(date), text = text))
+        }
+    }
+
+    fun updateEntry(entry: Entry) {
+        viewModelScope.launch { ctx.database.entryDao().update(entry) }
+    }
+
+    fun deleteEntry(entry: Entry) {
+        viewModelScope.launch { ctx.database.entryDao().delete(entry) }
+    }
 }

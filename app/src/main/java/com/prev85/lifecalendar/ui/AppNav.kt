@@ -28,7 +28,6 @@ fun AppNav() {
     NavHost(navController = nav, startDestination = Routes.GRID) {
         composable(Routes.GRID) {
             WeekGridScreen(
-                onWeekClick = { nav.navigate(Routes.week(it)) },
                 onEvents = { nav.navigate(Routes.EVENTS) },
                 onStats = { nav.navigate(Routes.STATS) },
                 onSettings = { nav.navigate(Routes.SETTINGS) }
