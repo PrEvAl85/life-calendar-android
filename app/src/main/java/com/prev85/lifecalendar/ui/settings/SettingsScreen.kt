@@ -15,8 +15,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
-import androidx.compose.material3.DatePicker
-import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -29,7 +27,6 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -40,10 +37,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.prev85.lifecalendar.ui.common.AppDatePickerDialog
 import com.prev85.lifecalendar.util.Dates
-import java.time.Instant
 import java.time.LocalDate
-import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -162,29 +158,13 @@ fun SettingsScreen(
     }
 
     if (showBirthPicker) {
-        val dpState = rememberDatePickerState(
-            initialSelectedDateMillis = (state.birthDate ?: LocalDate.of(1990, 1, 1))
-                .atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli()
-        )
-        DatePickerDialog(
-            onDismissRequest = { showBirthPicker = false },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        dpState.selectedDateMillis?.let { millis ->
-                            viewModel.setBirthDate(
-                                Instant.ofEpochMilli(millis).atZone(ZoneOffset.UTC).toLocalDate()
-                            )
-                        }
-                        showBirthPicker = false
-                    }
-                ) { Text("ОК") }
-            },
-            dismissButton = {
-                TextButton(onClick = { showBirthPicker = false }) { Text("Отмена") }
+        AppDatePickerDialog(
+            initialDate = state.birthDate ?: LocalDate.of(1990, 1, 1),
+            onDismiss = { showBirthPicker = false },
+            onConfirm = { date ->
+                viewModel.setBirthDate(date)
+                showBirthPicker = false
             }
-        ) {
-            DatePicker(state = dpState)
-        }
+        )
     }
 }

@@ -15,7 +15,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.draw.clip
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
@@ -45,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.prev85.lifecalendar.data.db.Event
+import com.prev85.lifecalendar.ui.common.BIRTHDAY_COLOR
 import com.prev85.lifecalendar.util.Dates
 import java.time.Instant
 import java.time.LocalDate
@@ -64,22 +64,17 @@ val EVENT_COLORS = listOf(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EventsScreen(
-    onBack: () -> Unit,
     viewModel: EventsViewModel = viewModel()
 ) {
     val events by viewModel.events.collectAsStateWithLifecycle()
+    val birth by viewModel.birthDate.collectAsStateWithLifecycle()
     var editing by remember { mutableStateOf<Event?>(null) }
     var adding by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("События") },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Назад")
-                    }
-                }
+                title = { Text("События") }
             )
         },
         floatingActionButton = {
@@ -88,7 +83,7 @@ fun EventsScreen(
             }
         }
     ) { padding ->
-        if (events.isEmpty()) {
+        if (birth == null && events.isEmpty()) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -103,6 +98,39 @@ fun EventsScreen(
                     .fillMaxSize()
                     .padding(padding)
             ) {
+                birth?.let { b ->
+                    item(key = "birthday") {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(12.dp)
+                                    .background(
+                                        BIRTHDAY_COLOR,
+                                        shape = CircleShape
+                                    )
+                            )
+                            Column(
+                                modifier = Modifier.padding(start = 12.dp)
+                            ) {
+                                Text(
+                                    text = "День рождения",
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    fontWeight = FontWeight.Medium
+                                )
+                                Text(
+                                    text = Dates.ddmmyyyy(b),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.outline
+                                )
+                            }
+                        }
+                    }
+                }
                 items(events, key = { it.id }) { event ->
                     Row(
                         modifier = Modifier

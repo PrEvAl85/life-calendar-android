@@ -39,6 +39,9 @@ interface EventDao {
     @Query("SELECT * FROM events ORDER BY date ASC")
     fun getAll(): Flow<List<Event>>
 
+    @Query("SELECT * FROM events WHERE date >= :from AND date <= :to ORDER BY date ASC")
+    fun getBetween(from: String, to: String): Flow<List<Event>>
+
     @Insert
     suspend fun insert(event: Event): Long
 

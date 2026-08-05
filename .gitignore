@@ -19,3 +19,6 @@ captures/
 .externalNativeBuild/
 .cxx/
 keys/
+
+# Собранные APK (лежат в корне проекта, в git не попадают)
+*.apk

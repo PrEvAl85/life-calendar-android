@@ -1,19 +1,28 @@
 package com.prev85.lifecalendar.ui.week
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ChevronLeft
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Today
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -25,7 +34,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
@@ -44,61 +55,121 @@ import java.time.LocalDate
 fun WeekScreen(
     monday: String,
     onBack: () -> Unit,
-    viewModel: WeekViewModel = viewModel(
+    showBack: Boolean = true,
+) {
+    var currentMonday by remember { mutableStateOf(Dates.parse(monday)) }
+    val viewModel: WeekViewModel = viewModel(
+        key = currentMonday.toString(),
         factory = viewModelFactory {
             initializer {
                 val app = this[ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY] as LifeCalendarApp
-                WeekViewModel(app, monday)
+                WeekViewModel(app, Dates.iso(currentMonday))
             }
         }
     )
-) {
+
     val entries by viewModel.entries.collectAsStateWithLifecycle()
+    val events by viewModel.events.collectAsStateWithLifecycle()
     var editing by remember { mutableStateOf<Entry?>(null) }
     var adding by remember { mutableStateOf(false) }
+    val isFutureWeek = currentMonday.isAfter(Dates.mondayOf(LocalDate.now()))
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(Dates.formatWeekRange(viewModel.mondayDate)) },
+                title = { Text(Dates.formatWeekRange(currentMonday)) },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Назад")
+                    if (showBack) {
+                        IconButton(onClick = onBack) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Назад")
+                        }
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { currentMonday = Dates.mondayOf(LocalDate.now()) }) {
+                        Icon(Icons.Filled.Today, contentDescription = "Сегодня")
+                    }
+                    IconButton(onClick = { currentMonday = currentMonday.minusWeeks(1) }) {
+                        Icon(Icons.Filled.ChevronLeft, contentDescription = "Предыдущая неделя")
+                    }
+                    IconButton(onClick = { currentMonday = currentMonday.plusWeeks(1) }) {
+                        Icon(Icons.Filled.ChevronRight, contentDescription = "Следующая неделя")
                     }
                 }
             )
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = { adding = true }) {
-                Icon(Icons.Filled.Add, contentDescription = "Добавить запись")
+            if (!isFutureWeek) {
+                FloatingActionButton(onClick = { adding = true }) {
+                    Icon(Icons.Filled.Add, contentDescription = "Добавить запись")
+                }
             }
         }
     ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-        ) {
-            if (entries.isEmpty()) {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        "Записей за неделю нет",
-                        modifier = Modifier.align(androidx.compose.ui.Alignment.CenterHorizontally)
-                    )
+        if (events.isEmpty() && entries.isEmpty()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("За неделю ничего нет")
+            }
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding)
+            ) {
+                if (events.isNotEmpty()) {
+                    item {
+                        SectionHeader("События")
+                    }
+                    items(events, key = { "e${it.id}" }) { event ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(12.dp)
+                                    .background(Color(event.color), shape = CircleShape)
+                            )
+                            Column(modifier = Modifier.padding(start = 12.dp)) {
+                                Text(
+                                    text = event.title,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    fontWeight = FontWeight.Medium
+                                )
+                                Text(
+                                    text = Dates.ddmmyyyy(LocalDate.parse(event.date)),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.outline
+                                )
+                            }
+                        }
+                    }
                 }
-            } else {
-                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                if (entries.isNotEmpty()) {
+                    item {
+                        SectionHeader("Записи")
+                    }
                     items(entries, key = { it.id }) { entry ->
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 16.dp, vertical = 8.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Column(modifier = Modifier.weight(1f)) {
+                            Column(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { editing = entry }
+                            ) {
                                 Text(
                                     text = Dates.ddmmyyyy(LocalDate.parse(entry.date)),
                                     style = MaterialTheme.typography.labelMedium,
@@ -127,7 +198,8 @@ fun WeekScreen(
     if (adding) {
         EntryDialog(
             entry = null,
-            defaultDate = viewModel.mondayDate,
+            defaultDate = currentMonday,
+            maxDate = LocalDate.now(),
             onDismiss = { adding = false },
             onSave = { date, text ->
                 viewModel.addEntry(date, text)
@@ -139,11 +211,35 @@ fun WeekScreen(
         EntryDialog(
             entry = entry,
             defaultDate = LocalDate.parse(entry.date),
+            maxDate = LocalDate.now(),
             onDismiss = { editing = null },
             onSave = { date, text ->
                 viewModel.updateEntry(entry.copy(date = Dates.iso(date), text = text))
                 editing = null
             }
+        )
+    }
+}
+
+@Composable
+private fun SectionHeader(text: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.dp)
+    ) {
+        HorizontalDivider(
+            modifier = Modifier.weight(1f),
+            color = MaterialTheme.colorScheme.outlineVariant
+        )
+        Text(
+            text = "  $text  ",
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        HorizontalDivider(
+            modifier = Modifier.weight(1f),
+            color = MaterialTheme.colorScheme.outlineVariant
         )
     }
 }
