@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lebenskalender</string>
+
+    <string name="back">Zurück</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="save">Speichern</string>
+    <string name="delete">Löschen</string>
+    <string name="birthday">Geburtstag</string>
+
+    <string name="tab_today">Heute</string>
+    <string name="tab_map">Karte</string>
+    <string name="tab_diary">Tagebuch</string>
+    <string name="tab_events">Ereignisse</string>
+    <string name="tab_profile">Profil</string>
+
+    <string name="app_welcome_title">Lebenskalender</string>
+    <string name="welcome_message">Willkommen! Um deinen Lebenskalender in Wochen zu erstellen, gib dein Geburtsdatum ein.</string>
+    <string name="birth_date_label">Geburtsdatum: %1$s</string>
+    <string name="pick_birth_date">Geburtsdatum wählen</string>
+    <string name="change_date">Datum ändern</string>
+    <string name="continue_action">Weiter</string>
+
+    <string name="profile_title">Profil</string>
+    <string name="set_birth_hint">Geburtsdatum in den Einstellungen festlegen</string>
+    <string name="age">Alter</string>
+    <string name="born_prefix">Geboren:</string>
+    <string name="allotted_label">zugemessen</string>
+    <string name="lived_percent_title">Gelebt</string>
+    <string name="lived_weeks_of">%1$d von %2$d</string>
+    <string name="weeks_left_label">übrig</string>
+    <string name="birthdays_stat">Geburtstage</string>
+    <string name="entries_stat">Einträge</string>
+    <string name="events_stat">Ereignisse</string>
+    <string name="birth_date">Geburtsdatum</string>
+    <string name="not_set">nicht festgelegt</string>
+    <string name="change_action">Ändern</string>
+    <string name="lifespan">Lebensspanne:</string>
+    <string name="backup_title">Backup</string>
+    <string name="backup_desc">Alle Daten (Einträge, Ereignisse, Einstellungen) werden in einer JSON-Datei gespeichert.</string>
+    <string name="export_json">Als JSON exportieren</string>
+    <string name="import_json">Aus JSON importieren</string>
+    <string name="backup_saved">Backup gespeichert</string>
+    <string name="backup_error">Fehler: %1$s</string>
+    <string name="import_error">Importfehler: %1$s</string>
+    <string name="imported_summary">Importiert: %1$d Einträge, %2$d Ereignisse</string>
+    <string name="read_error">Datei konnte nicht gelesen werden</string>
+
+    <string name="language_title">Sprache</string>
+    <string name="language_value">Sprache: %1$s</string>
+    <string name="language_system">Systemstandard</string>
+    <string name="language_choose_title">Sprache wählen</string>
+    <string name="current_label">Aktuell</string>
+
+    <string name="stats_title">Statistik</string>
+    <string name="entries_stat_full">Tagebucheinträge</string>
+
+    <string name="map_title">Lebenskarte</string>
+    <string name="decades_tab">10 Jahre</string>
+    <string name="year_tab">Jahr</string>
+    <string name="map_header_bd">GT</string>
+    <string name="years_short">J.</string>
+    <string name="weeks_short">Wo.</string>
+    <string name="lived_label">Gelebt</string>
+    <string name="entries_label">Einträge</string>
+    <string name="birthday_event">Geburtstag</string>
+    <string name="no_events_entries">Keine Ereignisse oder Einträge</string>
+    <string name="more_extra">+%1$d mehr…</string>
+    <string name="birth_label">Geburt</string>
+    <string name="future_suffix">%1$s · Zukunft</string>
+    <string name="year_label">Jahr %1$d</string>
+    <string name="prev_year_desc">Vorheriges Jahr</string>
+    <string name="next_year_desc">Nächstes Jahr</string>
+    <string name="to_current_year">Zum aktuellen Jahr</string>
+    <string name="future_label">Zukunft</string>
+    <string name="no_entries">Keine Einträge</string>
+    <string name="today_label">heute</string>
+    <string name="choose_year">Jahr wählen</string>
+    <string name="back_to_decades_desc">Zu den Jahrzehnten</string>
+    <string name="week_number_label">Woche %1$d</string>
+    <string name="open_week">Woche öffnen</string>
+    <string name="add_entry">Eintrag hinzufügen</string>
+
+    <string name="week_empty">Diese Woche ist nichts eingetragen</string>
+    <string name="today_desc">Heute</string>
+    <string name="prev_week_desc">Vorherige Woche</string>
+    <string name="next_week_desc">Nächste Woche</string>
+    <string name="events_section">Ereignisse</string>
+    <string name="entries_section">Einträge</string>
+
+    <string name="events_title">Ereignisse</string>
+    <string name="add_event_desc">Ereignis hinzufügen</string>
+    <string name="no_events">Noch keine Ereignisse</string>
+
+    <string name="diary_title">Tagebuch</string>
+    <string name="new_entry_desc">Neuer Eintrag</string>
+    <string name="search_hint">Text durchsuchen…</string>
+    <string name="no_entries_yet">Noch keine Einträge</string>
+    <string name="nothing_found">Nichts gefunden</string>
+
+    <string name="new_event">Neues Ereignis</string>
+    <string name="edit_event">Ereignis bearbeiten</string>
+    <string name="event_title">Titel</string>
+    <string name="date_label">Datum: %1$s</string>
+    <string name="new_entry_dialog">Neuer Eintrag</string>
+    <string name="edit_entry_dialog">Eintrag bearbeiten</string>
+
+    <plurals name="years">
+        <item quantity="one">Jahr</item>
+        <item quantity="other">Jahre</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">Woche</item>
+        <item quantity="other">Wochen</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">Tag</item>
+        <item quantity="other">Tage</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">Monat</item>
+        <item quantity="other">Monate</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="one">Eintrag</item>
+        <item quantity="other">Einträge</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>Januar</item>
+        <item>Februar</item>
+        <item>März</item>
+        <item>April</item>
+        <item>Mai</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>August</item>
+        <item>September</item>
+        <item>Oktober</item>
+        <item>November</item>
+        <item>Dezember</item>
+    </string-array>
+</resources>

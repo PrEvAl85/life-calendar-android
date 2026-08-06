@@ -32,8 +32,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Entry
 import com.prev85.lifecalendar.data.db.Event
 import com.prev85.lifecalendar.util.Dates
@@ -71,7 +73,7 @@ fun WeekDetailSheet(
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "Неделя $weekNumber",
+                    text = stringResource(R.string.week_number_label, weekNumber),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.outline
                 )
@@ -79,19 +81,19 @@ fun WeekDetailSheet(
                 Button(onClick = onOpenWeek, modifier = Modifier.fillMaxWidth()) {
                     Icon(Icons.Filled.OpenInNew, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
-                    Text("Открыть неделю")
+                    Text(stringResource(R.string.open_week))
                 }
                 Spacer(Modifier.height(8.dp))
                 OutlinedButton(onClick = onAddEntry, modifier = Modifier.fillMaxWidth()) {
                     Icon(Icons.Filled.Add, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
-                    Text("Добавить запись")
+                    Text(stringResource(R.string.add_entry))
                 }
             }
 
             if (events.isNotEmpty()) {
                 Spacer(Modifier.height(12.dp))
-                SheetSectionHeader("События")
+                SheetSectionHeader(stringResource(R.string.events_section))
                 events.forEach { event ->
                     Row(
                         modifier = Modifier
@@ -134,7 +136,7 @@ fun WeekDetailSheet(
                             IconButton(onClick = { onDeleteEvent(event) }) {
                                 Icon(
                                     Icons.Filled.Delete,
-                                    contentDescription = "Удалить",
+                                    contentDescription = stringResource(R.string.delete),
                                     tint = MaterialTheme.colorScheme.outline
                                 )
                             }
@@ -145,7 +147,7 @@ fun WeekDetailSheet(
 
             if (entries.isNotEmpty()) {
                 Spacer(Modifier.height(12.dp))
-                SheetSectionHeader("Записи")
+                SheetSectionHeader(stringResource(R.string.entries_section))
                 entries.forEach { entry ->
                     Row(
                         modifier = Modifier
@@ -173,7 +175,7 @@ fun WeekDetailSheet(
                         IconButton(onClick = { onDeleteEntry(entry) }) {
                             Icon(
                                 Icons.Filled.Delete,
-                                contentDescription = "Удалить",
+                                contentDescription = stringResource(R.string.delete),
                                 tint = MaterialTheme.colorScheme.outline
                             )
                         }

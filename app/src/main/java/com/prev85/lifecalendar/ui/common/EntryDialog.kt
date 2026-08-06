@@ -13,6 +13,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Entry
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
@@ -32,7 +34,7 @@ fun EntryDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(if (entry == null) "Новая запись" else "Редактировать запись") },
+        title = { Text(if (entry == null) stringResource(R.string.new_entry_dialog) else stringResource(R.string.edit_entry_dialog)) },
         text = {
             Column {
                 OutlinedTextField(
@@ -42,7 +44,7 @@ fun EntryDialog(
                     minLines = 3
                 )
                 TextButton(onClick = { showDatePicker = true }) {
-                    Text("Дата: ${Dates.ddmmyyyy(date)}")
+                    Text(stringResource(R.string.date_label, Dates.ddmmyyyy(date)))
                 }
             }
         },
@@ -52,10 +54,10 @@ fun EntryDialog(
                     val t = text.trim()
                     if (t.isNotEmpty()) onSave(date, t)
                 }
-            ) { Text("Сохранить") }
+            ) { Text(stringResource(R.string.save)) }
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) { Text("Отмена") }
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
         }
     )
 

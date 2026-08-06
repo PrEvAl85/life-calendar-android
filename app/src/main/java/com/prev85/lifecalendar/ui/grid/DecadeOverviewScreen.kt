@@ -28,10 +28,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.ui.common.BIRTHDAY_COLOR
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
@@ -76,7 +79,7 @@ private fun AnnounceCard(
             Spacer(Modifier.height(4.dp))
             if (rows.isEmpty()) {
                 Text(
-                    text = "Нет событий и записей",
+                    text = stringResource(R.string.no_events_entries),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.outline
                 )
@@ -113,7 +116,7 @@ private fun AnnounceCard(
                 }
                 if (extra > 0) {
                     Text(
-                        text = "+$extra ещё…",
+                        text = stringResource(R.string.more_extra, extra),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.padding(top = 2.dp)
@@ -128,6 +131,7 @@ private fun AnnounceCard(
 private fun announceRows(
     state: WeekGridViewModel.UiState,
     range: IntRange,
+    birthdayTitle: String,
 ): List<AnnounceRow> {
     val birth = state.birthDate
     val eventRows = state.events
@@ -136,7 +140,7 @@ private fun announceRows(
         .toMutableList()
     if (birth != null && birth.year in range) {
         eventRows.add(
-            AnnounceRow(Dates.ddmmyyyy(birth), "День рождения", BIRTHDAY_COLOR)
+            AnnounceRow(Dates.ddmmyyyy(birth), birthdayTitle, BIRTHDAY_COLOR)
         )
     }
     eventRows.sortBy { it.date }
@@ -174,7 +178,7 @@ fun DecadeList(
             }
             AnnounceCard(
                 title = title,
-                rows = announceRows(state, range),
+                rows = announceRows(state, range, stringResource(R.string.birthday_event)),
                 onClick = { onDecade(range) }
             )
         }
@@ -197,7 +201,7 @@ fun DecadeYearList(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "К десятилетиям")
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back_to_decades_desc))
             }
             Text(
                 text = if (range.first == range.last) {
@@ -216,7 +220,7 @@ fun DecadeYearList(
             items(range.toList(), key = { it }) { year ->
                 AnnounceCard(
                     title = "$year — ${ageLabel(birthYear, year, currentYear)}",
-                    rows = announceRows(state, year..year),
+                    rows = announceRows(state, year..year, stringResource(R.string.birthday_event)),
                     onClick = { onYear(year) }
                 )
             }
@@ -225,19 +229,13 @@ fun DecadeYearList(
 }
 
 /** Сколько лет исполнилось в [year]; будущие года помечаются. */
+@Composable
 private fun ageLabel(birthYear: Int, year: Int, currentYear: Int): String {
     val age = year - birthYear
-    val base = if (age == 0) "рождение" else "$age ${pluralYears(age)}"
-    return if (year > currentYear) "$base · будущее" else base
-}
-
-private fun pluralYears(n: Int): String {
-    val m10 = n % 10
-    val m100 = n % 100
-    return when {
-        m100 in 11..14 -> "лет"
-        m10 == 1 -> "год"
-        m10 in 2..4 -> "года"
-        else -> "лет"
+    val base = if (age == 0) {
+        stringResource(R.string.birth_label)
+    } else {
+        "$age ${pluralStringResource(R.plurals.years, age)}"
     }
+    return if (year > currentYear) stringResource(R.string.future_suffix, base) else base
 }

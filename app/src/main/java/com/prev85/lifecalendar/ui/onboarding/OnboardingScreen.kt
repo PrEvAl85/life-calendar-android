@@ -22,9 +22,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.ui.common.AppDatePickerDialog
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
@@ -53,10 +55,10 @@ fun OnboardingScreen(
                 modifier = Modifier.size(72.dp)
             )
             Spacer(Modifier.height(16.dp))
-            Text("Календарь жизни", style = MaterialTheme.typography.headlineMedium)
+            Text(stringResource(R.string.app_welcome_title), style = MaterialTheme.typography.headlineMedium)
             Spacer(Modifier.height(12.dp))
             Text(
-                "Добро пожаловать! Чтобы построить календарь жизни в неделях, укажите вашу дату рождения.",
+                stringResource(R.string.welcome_message),
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -64,13 +66,13 @@ fun OnboardingScreen(
             Spacer(Modifier.height(24.dp))
             picked?.let {
                 Text(
-                    "Дата рождения: ${Dates.ddmmyyyy(it)}",
+                    stringResource(R.string.birth_date_label, Dates.ddmmyyyy(it)),
                     style = MaterialTheme.typography.titleMedium
                 )
                 Spacer(Modifier.height(12.dp))
             }
             Button(onClick = { showPicker = true }) {
-                Text(if (picked == null) "Выбрать дату рождения" else "Изменить дату")
+                Text(if (picked == null) stringResource(R.string.pick_birth_date) else stringResource(R.string.change_date))
             }
             Spacer(Modifier.height(12.dp))
             Button(
@@ -83,7 +85,7 @@ fun OnboardingScreen(
                 enabled = picked != null,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Продолжить")
+                Text(stringResource(R.string.continue_action))
             }
         }
     }

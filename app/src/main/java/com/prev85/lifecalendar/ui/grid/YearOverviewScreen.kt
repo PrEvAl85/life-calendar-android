@@ -32,20 +32,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Entry
 import com.prev85.lifecalendar.data.db.Event
 import com.prev85.lifecalendar.ui.common.BIRTHDAY_COLOR_ARGB
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
-
-private val MONTH_NAMES = listOf(
-    "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
-)
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -59,6 +58,7 @@ fun YearOverview(
     val currentYear = LocalDate.now().year
     val todayMonday = remember { Dates.mondayOf(LocalDate.now()) }
     var showYearPicker by remember { mutableStateOf(false) }
+    val monthNames = stringArrayResource(R.array.month_names)
 
     val months = remember(weeks, year) {
         weeks.groupBy { monday ->
@@ -72,10 +72,10 @@ fun YearOverview(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = { onYearChange(year - 1) }) {
-                Icon(Icons.Filled.ChevronLeft, contentDescription = "Прошлый год")
+                Icon(Icons.Filled.ChevronLeft, contentDescription = stringResource(R.string.prev_year_desc))
             }
             Text(
-                text = "Год $year",
+                text = stringResource(R.string.year_label, year),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
@@ -84,7 +84,7 @@ fun YearOverview(
                     .clickable { showYearPicker = true }
             )
             IconButton(onClick = { onYearChange(year + 1) }) {
-                Icon(Icons.Filled.ChevronRight, contentDescription = "Следующий год")
+                Icon(Icons.Filled.ChevronRight, contentDescription = stringResource(R.string.next_year_desc))
             }
         }
         if (year != currentYear) {
@@ -92,19 +92,19 @@ fun YearOverview(
                 onClick = { onYearChange(currentYear) },
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             ) {
-                Text("К текущему году")
+                Text(stringResource(R.string.to_current_year))
             }
         }
 
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             months.forEach { (month, mondays) ->
                 stickyHeader(key = "m$month") {
-                    MonthHeader(MONTH_NAMES[month - 1])
+                    MonthHeader(monthNames[month - 1])
                 }
                 items(mondays, key = { Dates.iso(it) }) { monday ->
                     val wk = Dates.iso(monday)
                     val events = state.eventsByWeek[wk].orEmpty().toMutableList()
-                    birthdayEvent(state, monday)?.let { events.add(it) }
+                    birthdayEvent(state, monday, stringResource(R.string.birthday_event))?.let { events.add(it) }
                     val entries = state.entriesByWeek[wk].orEmpty()
                     val isToday = wk == state.todayKey
                     val isFuture = monday.isAfter(todayMonday)
@@ -155,13 +155,14 @@ private fun MonthHeader(name: String) {
 private fun birthdayEvent(
     state: WeekGridViewModel.UiState,
     monday: LocalDate,
+    title: String,
 ): Event? {
     val birth = state.birthDate ?: return null
     return if (!birth.isBefore(monday) && !birth.isAfter(monday.plusDays(6))) {
         Event(
             id = -1L,
             date = Dates.iso(birth),
-            title = "День рождения",
+            title = title,
             color = BIRTHDAY_COLOR_ARGB
         )
     } else null
@@ -234,14 +235,14 @@ private fun WeekCard(
                     )
                     if (entries.size > 1) {
                         Text(
-                            text = "+${entries.size - 1} записей",
+                            text = stringResource(R.string.more_extra, entries.size - 1),
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.primary
                         )
                     }
                 } else {
                     Text(
-                        text = if (isFuture) "Будущее" else "Нет записей",
+                        text = if (isFuture) stringResource(R.string.future_label) else stringResource(R.string.no_entries),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.outline,
                         modifier = Modifier.padding(top = 2.dp)
@@ -250,7 +251,7 @@ private fun WeekCard(
             }
             if (isToday) {
                 Text(
-                    text = "сегодня",
+                    text = stringResource(R.string.today_label),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.padding(start = 8.dp)

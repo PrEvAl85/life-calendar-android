@@ -25,10 +25,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
 
@@ -43,10 +46,10 @@ fun StatsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Статистика") },
+                title = { Text(stringResource(R.string.stats_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Назад")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back))
                     }
                 }
             )
@@ -60,7 +63,7 @@ fun StatsScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("Задайте дату рождения в настройках")
+                Text(stringResource(R.string.set_birth_hint))
             }
         } else {
             Column(
@@ -72,15 +75,19 @@ fun StatsScreen(
             ) {
                 Card(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.padding(16.dp)) {
-                        Text("Возраст", style = MaterialTheme.typography.titleMedium)
+                        Text(stringResource(R.string.age), style = MaterialTheme.typography.titleMedium)
                         Spacer(Modifier.height(8.dp))
                         Text(
-                            text = "${stats.ageYears} лет · ${stats.ageMonths} мес · ${stats.ageDays} дн",
+                            text = "${stats.ageYears} ${pluralStringResource(R.plurals.years, stats.ageYears.toInt())} · " +
+                                "${stats.ageMonths} ${pluralStringResource(R.plurals.months, stats.ageMonths.toInt())} · " +
+                                "${stats.ageDays} ${pluralStringResource(R.plurals.days, stats.ageDays.toInt())}",
                             style = MaterialTheme.typography.headlineSmall,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "Родился: ${Dates.ddmmyyyy(stats.birthDate!!)} · отведено ${stats.lifespanYears} лет",
+                            text = stringResource(R.string.born_prefix) + " ${Dates.ddmmyyyy(stats.birthDate!!)} · " +
+                                stringResource(R.string.allotted_label) + " ${stats.lifespanYears} " +
+                                pluralStringResource(R.plurals.years, stats.lifespanYears),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.outline
                         )
@@ -91,7 +98,7 @@ fun StatsScreen(
 
                 Card(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.padding(16.dp)) {
-                        Text("Прожито", style = MaterialTheme.typography.titleMedium)
+                        Text(stringResource(R.string.lived_percent_title), style = MaterialTheme.typography.titleMedium)
                         Spacer(Modifier.height(8.dp))
                         Text(
                             text = "${(stats.percentLived * 100).toInt()}%",
@@ -106,7 +113,10 @@ fun StatsScreen(
                         )
                         Spacer(Modifier.height(8.dp))
                         Text(
-                            text = "${stats.livedWeeks} из ${stats.totalWeeks} недель · осталось ${stats.weeksLeft}",
+                            text = stringResource(R.string.lived_weeks_of, stats.livedWeeks, stats.totalWeeks) + " " +
+                                pluralStringResource(R.plurals.weeks, stats.totalWeeks) + " · " +
+                                stringResource(R.string.weeks_left_label) + " ${stats.weeksLeft} " +
+                                pluralStringResource(R.plurals.weeks, stats.weeksLeft),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.outline
                         )
@@ -120,17 +130,17 @@ fun StatsScreen(
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     StatCard(
-                        label = "Дней рождений",
+                        label = stringResource(R.string.birthdays_stat),
                         value = "${stats.birthdays}",
                         modifier = Modifier.weight(1f)
                     )
                     StatCard(
-                        label = "Записей в дневнике",
+                        label = stringResource(R.string.entries_stat_full),
                         value = "${stats.entriesCount}",
                         modifier = Modifier.weight(1f)
                     )
                     StatCard(
-                        label = "Событий",
+                        label = stringResource(R.string.events_stat),
                         value = "${stats.eventsCount}",
                         modifier = Modifier.weight(1f)
                     )

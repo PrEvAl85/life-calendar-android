@@ -37,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
@@ -45,6 +46,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.prev85.lifecalendar.LifeCalendarApp
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Entry
 import com.prev85.lifecalendar.data.db.Event
 import com.prev85.lifecalendar.ui.common.EntryDialog
@@ -84,19 +86,19 @@ fun WeekScreen(
                 navigationIcon = {
                     if (showBack) {
                         IconButton(onClick = onBack) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Назад")
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.back))
                         }
                     }
                 },
                 actions = {
                     IconButton(onClick = { currentMonday = Dates.mondayOf(LocalDate.now()) }) {
-                        Icon(Icons.Filled.Today, contentDescription = "Сегодня")
+                        Icon(Icons.Filled.Today, contentDescription = stringResource(R.string.today_desc))
                     }
                     IconButton(onClick = { currentMonday = currentMonday.minusWeeks(1) }) {
-                        Icon(Icons.Filled.ChevronLeft, contentDescription = "Предыдущая неделя")
+                        Icon(Icons.Filled.ChevronLeft, contentDescription = stringResource(R.string.prev_week_desc))
                     }
                     IconButton(onClick = { currentMonday = currentMonday.plusWeeks(1) }) {
-                        Icon(Icons.Filled.ChevronRight, contentDescription = "Следующая неделя")
+                        Icon(Icons.Filled.ChevronRight, contentDescription = stringResource(R.string.next_week_desc))
                     }
                 }
             )
@@ -104,7 +106,7 @@ fun WeekScreen(
         floatingActionButton = {
             if (!isFutureWeek) {
                 FloatingActionButton(onClick = { adding = true }) {
-                    Icon(Icons.Filled.Add, contentDescription = "Добавить запись")
+                    Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_entry))
                 }
             }
         }
@@ -117,7 +119,7 @@ fun WeekScreen(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text("За неделю ничего нет")
+                Text(stringResource(R.string.week_empty))
             }
         } else {
             LazyColumn(
@@ -127,7 +129,7 @@ fun WeekScreen(
             ) {
                 if (events.isNotEmpty()) {
                     item {
-                        SectionHeader("События")
+                        SectionHeader(stringResource(R.string.events_section))
                     }
                     items(events, key = { "e${it.id}" }) { event ->
                         Row(
@@ -164,7 +166,7 @@ fun WeekScreen(
                             IconButton(onClick = { viewModel.deleteEvent(event) }) {
                                 Icon(
                                     Icons.Filled.Delete,
-                                    contentDescription = "Удалить",
+                                    contentDescription = stringResource(R.string.delete),
                                     tint = MaterialTheme.colorScheme.outline
                                 )
                             }
@@ -173,7 +175,7 @@ fun WeekScreen(
                 }
                 if (entries.isNotEmpty()) {
                     item {
-                        SectionHeader("Записи")
+                        SectionHeader(stringResource(R.string.entries_section))
                     }
                     items(entries, key = { it.id }) { entry ->
                         Row(
@@ -202,7 +204,7 @@ fun WeekScreen(
                             IconButton(onClick = { viewModel.deleteEntry(entry) }) {
                                 Icon(
                                     Icons.Filled.Delete,
-                                    contentDescription = "Удалить",
+                                    contentDescription = stringResource(R.string.delete),
                                     tint = MaterialTheme.colorScheme.outline
                                 )
                             }

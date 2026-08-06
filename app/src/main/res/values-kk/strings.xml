@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Өмір күнтізбесі</string>
+
+    <string name="back">Артқа</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Бас тарту</string>
+    <string name="save">Сақтау</string>
+    <string name="delete">Жою</string>
+    <string name="birthday">Туған күн</string>
+
+    <string name="tab_today">Бүгін</string>
+    <string name="tab_map">Карта</string>
+    <string name="tab_diary">Күнделік</string>
+    <string name="tab_events">Оқиғалар</string>
+    <string name="tab_profile">Профиль</string>
+
+    <string name="app_welcome_title">Өмір күнтізбесі</string>
+    <string name="welcome_message">Қош келдіңіз! Өмір күнтізбесін апталар бойынша құру үшін туған күніңізді көрсетіңіз.</string>
+    <string name="birth_date_label">Туған күні: %1$s</string>
+    <string name="pick_birth_date">Туған күнді таңдау</string>
+    <string name="change_date">Күнді өзгерту</string>
+    <string name="continue_action">Жалғастыру</string>
+
+    <string name="profile_title">Профиль</string>
+    <string name="set_birth_hint">Туған күнді параметрлерде көрсетіңіз</string>
+    <string name="age">Жас</string>
+    <string name="born_prefix">Туған күні:</string>
+    <string name="allotted_label">бөлінген</string>
+    <string name="lived_percent_title">Өмір сүрді</string>
+    <string name="lived_weeks_of">%1$d / %2$d</string>
+    <string name="weeks_left_label">қалды</string>
+    <string name="birthdays_stat">Туған күндер</string>
+    <string name="entries_stat">Жазбалар</string>
+    <string name="events_stat">Оқиғалар</string>
+    <string name="birth_date">Туған күні</string>
+    <string name="not_set">көрсетілмеген</string>
+    <string name="change_action">Өзгерту</string>
+    <string name="lifespan">Өмір ұзақтығы:</string>
+    <string name="backup_title">Сақтық көшірме</string>
+    <string name="backup_desc">Барлық деректер (жазбалар, оқиғалар, параметрлер) бір JSON файлына сақталады.</string>
+    <string name="export_json">JSON-ға экспорттау</string>
+    <string name="import_json">JSON-нан импорттау</string>
+    <string name="backup_saved">Сақтық көшірме сақталды</string>
+    <string name="backup_error">Қате: %1$s</string>
+    <string name="import_error">Импорт қатесі: %1$s</string>
+    <string name="imported_summary">Импортталды: %1$d жазба, %2$d оқиға</string>
+    <string name="read_error">Файлды оқу мүмкін болмады</string>
+
+    <string name="language_title">Тіл</string>
+    <string name="language_value">Тіл: %1$s</string>
+    <string name="language_system">Жүйелік</string>
+    <string name="language_choose_title">Тілді таңдау</string>
+    <string name="current_label">Ағымдағы</string>
+
+    <string name="stats_title">Статистика</string>
+    <string name="entries_stat_full">Күнделіктегі жазбалар</string>
+
+    <string name="map_title">Өмір картасы</string>
+    <string name="decades_tab">10 жыл</string>
+    <string name="year_tab">Жыл</string>
+    <string name="map_header_bd">ТК</string>
+    <string name="years_short">ж.</string>
+    <string name="weeks_short">апт.</string>
+    <string name="lived_label">Өмір сүрді</string>
+    <string name="entries_label">Жазбалар</string>
+    <string name="birthday_event">Туған күн</string>
+    <string name="no_events_entries">Оқиғалар мен жазбалар жоқ</string>
+    <string name="more_extra">тағы +%1$d…</string>
+    <string name="birth_label">туылу</string>
+    <string name="future_suffix">%1$s · болашақ</string>
+    <string name="year_label">%1$d жыл</string>
+    <string name="prev_year_desc">Өткен жыл</string>
+    <string name="next_year_desc">Келесі жыл</string>
+    <string name="to_current_year">Ағымдағы жылға</string>
+    <string name="future_label">Болашақ</string>
+    <string name="no_entries">Жазбалар жоқ</string>
+    <string name="today_label">бүгін</string>
+    <string name="choose_year">Жылды таңдау</string>
+    <string name="back_to_decades_desc">Онжылдықтарға</string>
+    <string name="week_number_label">%1$d апта</string>
+    <string name="open_week">Аптаны ашу</string>
+    <string name="add_entry">Жазба қосу</string>
+
+    <string name="week_empty">Бұл аптада ештеңе жоқ</string>
+    <string name="today_desc">Бүгін</string>
+    <string name="prev_week_desc">Алдыңғы апта</string>
+    <string name="next_week_desc">Келесі апта</string>
+    <string name="events_section">Оқиғалар</string>
+    <string name="entries_section">Жазбалар</string>
+
+    <string name="events_title">Оқиғалар</string>
+    <string name="add_event_desc">Оқиға қосу</string>
+    <string name="no_events">Әзірге оқиғалар жоқ</string>
+
+    <string name="diary_title">Күнделік</string>
+    <string name="new_entry_desc">Жаңа жазба</string>
+    <string name="search_hint">Мәтін бойынша іздеу…</string>
+    <string name="no_entries_yet">Әзірге жазбалар жоқ</string>
+    <string name="nothing_found">Ештеңе табылмады</string>
+
+    <string name="new_event">Жаңа оқиға</string>
+    <string name="edit_event">Оқиғаны өңдеу</string>
+    <string name="event_title">Атауы</string>
+    <string name="date_label">Күні: %1$s</string>
+    <string name="new_entry_dialog">Жаңа жазба</string>
+    <string name="edit_entry_dialog">Жазбаны өңдеу</string>
+
+    <string-array name="month_names">
+        <item>Қаңтар</item>
+        <item>Ақпан</item>
+        <item>Наурыз</item>
+        <item>Сәуір</item>
+        <item>Мамыр</item>
+        <item>Маусым</item>
+        <item>Шілде</item>
+        <item>Тамыз</item>
+        <item>Қыркүйек</item>
+        <item>Қазан</item>
+        <item>Қараша</item>
+        <item>Желтоқсан</item>
+    </string-array>
+</resources>

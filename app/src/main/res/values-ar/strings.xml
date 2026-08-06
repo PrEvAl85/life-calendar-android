@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تقويم الحياة</string>
+
+    <string name="back">رجوع</string>
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="save">حفظ</string>
+    <string name="delete">حذف</string>
+    <string name="birthday">عيد الميلاد</string>
+
+    <string name="tab_today">اليوم</string>
+    <string name="tab_map">الخريطة</string>
+    <string name="tab_diary">اليوميات</string>
+    <string name="tab_events">الأحداث</string>
+    <string name="tab_profile">الملف الشخصي</string>
+
+    <string name="app_welcome_title">تقويم الحياة</string>
+    <string name="welcome_message">مرحباً! لإنشاء تقويم حياتك حسب الأسابيع، أدخل تاريخ ميلادك.</string>
+    <string name="birth_date_label">تاريخ الميلاد: %1$s</string>
+    <string name="pick_birth_date">اختيار تاريخ الميلاد</string>
+    <string name="change_date">تغيير التاريخ</string>
+    <string name="continue_action">متابعة</string>
+
+    <string name="profile_title">الملف الشخصي</string>
+    <string name="set_birth_hint">حدد تاريخ ميلادك في الإعدادات</string>
+    <string name="age">العمر</string>
+    <string name="born_prefix">الولادة:</string>
+    <string name="allotted_label">المُقدَّر</string>
+    <string name="lived_percent_title">ما عاش</string>
+    <string name="lived_weeks_of">%1$d / %2$d</string>
+    <string name="weeks_left_label">متبقٍ</string>
+    <string name="birthdays_stat">أعياد الميلاد</string>
+    <string name="entries_stat">الملاحظات</string>
+    <string name="events_stat">الأحداث</string>
+    <string name="birth_date">تاريخ الميلاد</string>
+    <string name="not_set">غير محدد</string>
+    <string name="change_action">تغيير</string>
+    <string name="lifespan">متوسط العمر:</string>
+    <string name="backup_title">النسخ الاحتياطي</string>
+    <string name="backup_desc">تُحفظ جميع البيانات (الملاحظات والأحداث والإعدادات) في ملف JSON واحد.</string>
+    <string name="export_json">تصدير إلى JSON</string>
+    <string name="import_json">استيراد من JSON</string>
+    <string name="backup_saved">تم حفظ النسخة الاحتياطية</string>
+    <string name="backup_error">خطأ: %1$s</string>
+    <string name="import_error">خطأ في الاستيراد: %1$s</string>
+    <string name="imported_summary">تم الاستيراد: %1$d ملاحظة، %2$d حدث</string>
+    <string name="read_error">تعذّر قراءة الملف</string>
+
+    <string name="language_title">اللغة</string>
+    <string name="language_value">اللغة: %1$s</string>
+    <string name="language_system">لغة النظام</string>
+    <string name="language_choose_title">اختيار اللغة</string>
+    <string name="current_label">الحالي</string>
+
+    <string name="stats_title">الإحصائيات</string>
+    <string name="entries_stat_full">ملاحظات اليوميات</string>
+
+    <string name="map_title">خريطة الحياة</string>
+    <string name="decades_tab">10 سنوات</string>
+    <string name="year_tab">سنة</string>
+    <string name="map_header_bd">ميلاد</string>
+    <string name="years_short">سنة</string>
+    <string name="weeks_short">أسبوع</string>
+    <string name="lived_label">ما عاش</string>
+    <string name="entries_label">الملاحظات</string>
+    <string name="birthday_event">عيد الميلاد</string>
+    <string name="no_events_entries">لا توجد أحداث أو ملاحظات</string>
+    <string name="more_extra">+%1$d أخرى…</string>
+    <string name="birth_label">الولادة</string>
+    <string name="future_suffix">%1$s · المستقبل</string>
+    <string name="year_label">سنة %1$d</string>
+    <string name="prev_year_desc">السنة السابقة</string>
+    <string name="next_year_desc">السنة التالية</string>
+    <string name="to_current_year">الانتقال إلى السنة الحالية</string>
+    <string name="future_label">المستقبل</string>
+    <string name="no_entries">لا توجد ملاحظات</string>
+    <string name="today_label">اليوم</string>
+    <string name="choose_year">اختيار السنة</string>
+    <string name="back_to_decades_desc">العودة إلى عرض السنوات</string>
+    <string name="week_number_label">الأسبوع %1$d</string>
+    <string name="open_week">فتح الأسبوع</string>
+    <string name="add_entry">إضافة ملاحظة</string>
+
+    <string name="week_empty">لا يوجد شيء هذا الأسبوع</string>
+    <string name="today_desc">اليوم</string>
+    <string name="prev_week_desc">الأسبوع السابق</string>
+    <string name="next_week_desc">الأسبوع التالي</string>
+    <string name="events_section">الأحداث</string>
+    <string name="entries_section">الملاحظات</string>
+
+    <string name="events_title">الأحداث</string>
+    <string name="add_event_desc">إضافة حدث</string>
+    <string name="no_events">لا توجد أحداث بعد</string>
+
+    <string name="diary_title">اليوميات</string>
+    <string name="new_entry_desc">ملاحظة جديدة</string>
+    <string name="search_hint">البحث في النص…</string>
+    <string name="no_entries_yet">لا توجد ملاحظات بعد</string>
+    <string name="nothing_found">لم يتم العثور على شيء</string>
+
+    <string name="new_event">حدث جديد</string>
+    <string name="edit_event">تحرير الحدث</string>
+    <string name="event_title">العنوان</string>
+    <string name="date_label">التاريخ: %1$s</string>
+    <string name="new_entry_dialog">ملاحظة جديدة</string>
+    <string name="edit_entry_dialog">تحرير الملاحظة</string>
+
+    <plurals name="years">
+        <item quantity="one">سنة</item>
+        <item quantity="two">سنتان</item>
+        <item quantity="few">سنوات</item>
+        <item quantity="many">سنة</item>
+        <item quantity="other">سنة</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">أسبوع</item>
+        <item quantity="two">أسبوعان</item>
+        <item quantity="few">أسابيع</item>
+        <item quantity="many">أسبوع</item>
+        <item quantity="other">أسبوع</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">يوم</item>
+        <item quantity="two">يومان</item>
+        <item quantity="few">أيام</item>
+        <item quantity="many">يوم</item>
+        <item quantity="other">يوم</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">شهر</item>
+        <item quantity="two">شهران</item>
+        <item quantity="few">أشهر</item>
+        <item quantity="many">شهر</item>
+        <item quantity="other">شهر</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="one">ملاحظة</item>
+        <item quantity="two">ملاحظتان</item>
+        <item quantity="few">ملاحظات</item>
+        <item quantity="many">ملاحظة</item>
+        <item quantity="other">ملاحظة</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>يناير</item>
+        <item>فبراير</item>
+        <item>مارس</item>
+        <item>أبريل</item>
+        <item>مايو</item>
+        <item>يونيو</item>
+        <item>يوليو</item>
+        <item>أغسطس</item>
+        <item>سبتمبر</item>
+        <item>أكتوبر</item>
+        <item>نوفمبر</item>
+        <item>ديسمبر</item>
+    </string-array>
+</resources>

@@ -1,10 +1,12 @@
 package com.prev85.lifecalendar
 
 import android.app.Application
+import android.content.Context
 import android.os.Process
 import android.util.Log
 import com.prev85.lifecalendar.data.db.AppDatabase
 import com.prev85.lifecalendar.data.SettingsRepository
+import com.prev85.lifecalendar.util.LanguageManager
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -13,6 +15,10 @@ import java.util.Locale
 class LifeCalendarApp : Application() {
     val database: AppDatabase by lazy { AppDatabase.get(this) }
     val settings: SettingsRepository by lazy { SettingsRepository(this) }
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(LanguageManager.applyTo(base))
+    }
 
     override fun onCreate() {
         super.onCreate()

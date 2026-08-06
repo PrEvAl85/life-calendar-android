@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Yaşam Takvimi</string>
+
+    <string name="back">Geri</string>
+    <string name="ok">Tamam</string>
+    <string name="cancel">İptal</string>
+    <string name="save">Kaydet</string>
+    <string name="delete">Sil</string>
+    <string name="birthday">Doğum günü</string>
+
+    <string name="tab_today">Bugün</string>
+    <string name="tab_map">Harita</string>
+    <string name="tab_diary">Günlük</string>
+    <string name="tab_events">Etkinlikler</string>
+    <string name="tab_profile">Profil</string>
+
+    <string name="app_welcome_title">Yaşam Takvimi</string>
+    <string name="welcome_message">Hoş geldiniz! Yaşam takviminizi haftalar halinde oluşturmak için doğum tarihinizi girin.</string>
+    <string name="birth_date_label">Doğum tarihi: %1$s</string>
+    <string name="pick_birth_date">Doğum tarihi seç</string>
+    <string name="change_date">Tarihi değiştir</string>
+    <string name="continue_action">Devam et</string>
+
+    <string name="profile_title">Profil</string>
+    <string name="set_birth_hint">Doğum tarihinizi ayarlardan belirleyin</string>
+    <string name="age">Yaş</string>
+    <string name="born_prefix">Doğum:</string>
+    <string name="allotted_label">ayrılan</string>
+    <string name="lived_percent_title">Yaşanan</string>
+    <string name="lived_weeks_of">%1$d / %2$d</string>
+    <string name="weeks_left_label">kalan</string>
+    <string name="birthdays_stat">Doğum günleri</string>
+    <string name="entries_stat">Kayıtlar</string>
+    <string name="events_stat">Etkinlikler</string>
+    <string name="birth_date">Doğum tarihi</string>
+    <string name="not_set">belirlenmedi</string>
+    <string name="change_action">Değiştir</string>
+    <string name="lifespan">Yaşam süresi:</string>
+    <string name="backup_title">Yedekleme</string>
+    <string name="backup_desc">Tüm veriler (kayıtlar, etkinlikler, ayarlar) tek bir JSON dosyasına kaydedilir.</string>
+    <string name="export_json">JSON\'a aktar</string>
+    <string name="import_json">JSON\'dan içe aktar</string>
+    <string name="backup_saved">Yedek kaydedildi</string>
+    <string name="backup_error">Hata: %1$s</string>
+    <string name="import_error">İçe aktarma hatası: %1$s</string>
+    <string name="imported_summary">Aktarıldı: %1$d kayıt, %2$d etkinlik</string>
+    <string name="read_error">Dosya okunamadı</string>
+
+    <string name="language_title">Dil</string>
+    <string name="language_value">Dil: %1$s</string>
+    <string name="language_system">Sistem dili</string>
+    <string name="language_choose_title">Dil seçin</string>
+    <string name="current_label">Geçerli</string>
+
+    <string name="stats_title">İstatistikler</string>
+    <string name="entries_stat_full">Günlük kayıtları</string>
+
+    <string name="map_title">Yaşam haritası</string>
+    <string name="decades_tab">10 yıl</string>
+    <string name="year_tab">Yıl</string>
+    <string name="map_header_bd">DG</string>
+    <string name="years_short">yıl</string>
+    <string name="weeks_short">hft</string>
+    <string name="lived_label">Yaşanan</string>
+    <string name="entries_label">Kayıtlar</string>
+    <string name="birthday_event">Doğum günü</string>
+    <string name="no_events_entries">Etkinlik veya kayıt yok</string>
+    <string name="more_extra">+%1$d daha…</string>
+    <string name="birth_label">doğum</string>
+    <string name="future_suffix">%1$s · gelecek</string>
+    <string name="year_label">%1$d Yılı</string>
+    <string name="prev_year_desc">Önceki yıl</string>
+    <string name="next_year_desc">Sonraki yıl</string>
+    <string name="to_current_year">Geçerli yıla git</string>
+    <string name="future_label">Gelecek</string>
+    <string name="no_entries">Kayıt yok</string>
+    <string name="today_label">bugün</string>
+    <string name="choose_year">Yıl seçin</string>
+    <string name="back_to_decades_desc">On yıllara dön</string>
+    <string name="week_number_label">%1$d. Hafta</string>
+    <string name="open_week">Haftayı aç</string>
+    <string name="add_entry">Kayıt ekle</string>
+
+    <string name="week_empty">Bu hafta hiçbir şey yok</string>
+    <string name="today_desc">Bugün</string>
+    <string name="prev_week_desc">Önceki hafta</string>
+    <string name="next_week_desc">Sonraki hafta</string>
+    <string name="events_section">Etkinlikler</string>
+    <string name="entries_section">Kayıtlar</string>
+
+    <string name="events_title">Etkinlikler</string>
+    <string name="add_event_desc">Etkinlik ekle</string>
+    <string name="no_events">Henüz etkinlik yok</string>
+
+    <string name="diary_title">Günlük</string>
+    <string name="new_entry_desc">Yeni kayıt</string>
+    <string name="search_hint">Metinde ara…</string>
+    <string name="no_entries_yet">Henüz kayıt yok</string>
+    <string name="nothing_found">Hiçbir şey bulunamadı</string>
+
+    <string name="new_event">Yeni etkinlik</string>
+    <string name="edit_event">Etkinliği düzenle</string>
+    <string name="event_title">Başlık</string>
+    <string name="date_label">Tarih: %1$s</string>
+    <string name="new_entry_dialog">Yeni kayıt</string>
+    <string name="edit_entry_dialog">Kaydı düzenle</string>
+
+    <plurals name="years">
+        <item quantity="one">yıl</item>
+        <item quantity="other">yıl</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">hafta</item>
+        <item quantity="other">hafta</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">gün</item>
+        <item quantity="other">gün</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">ay</item>
+        <item quantity="other">ay</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="one">kayıt</item>
+        <item quantity="other">kayıt</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>Ocak</item>
+        <item>Şubat</item>
+        <item>Mart</item>
+        <item>Nisan</item>
+        <item>Mayıs</item>
+        <item>Haziran</item>
+        <item>Temmuz</item>
+        <item>Ağustos</item>
+        <item>Eylül</item>
+        <item>Ekim</item>
+        <item>Kasım</item>
+        <item>Aralık</item>
+    </string-array>
+</resources>

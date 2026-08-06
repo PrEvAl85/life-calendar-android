@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalendář života</string>
+
+    <string name="back">Zpět</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Zrušit</string>
+    <string name="save">Uložit</string>
+    <string name="delete">Smazat</string>
+    <string name="birthday">Narozeniny</string>
+
+    <string name="tab_today">Dnes</string>
+    <string name="tab_map">Mapa</string>
+    <string name="tab_diary">Deník</string>
+    <string name="tab_events">Události</string>
+    <string name="tab_profile">Profil</string>
+
+    <string name="app_welcome_title">Kalendář života</string>
+    <string name="welcome_message">Vítejte! Chcete-li sestavit kalendář života po týdnech, zadejte své datum narození.</string>
+    <string name="birth_date_label">Datum narození: %1$s</string>
+    <string name="pick_birth_date">Vyberte datum narození</string>
+    <string name="change_date">Změnit datum</string>
+    <string name="continue_action">Pokračovat</string>
+
+    <string name="profile_title">Profil</string>
+    <string name="set_birth_hint">Nastavte datum narození v nastavení</string>
+    <string name="age">Věk</string>
+    <string name="born_prefix">Narozen:</string>
+    <string name="allotted_label">vymezeno</string>
+    <string name="lived_percent_title">Prožito</string>
+    <string name="lived_weeks_of">%1$d z %2$d</string>
+    <string name="weeks_left_label">zbývá</string>
+    <string name="birthdays_stat">Narozeniny</string>
+    <string name="entries_stat">Záznamy</string>
+    <string name="events_stat">Události</string>
+    <string name="birth_date">Datum narození</string>
+    <string name="not_set">nenastaveno</string>
+    <string name="change_action">Změnit</string>
+    <string name="lifespan">Délka života:</string>
+    <string name="backup_title">Záloha</string>
+    <string name="backup_desc">Všechna data (záznamy, události, nastavení) se ukládají do jednoho souboru JSON.</string>
+    <string name="export_json">Exportovat do JSON</string>
+    <string name="import_json">Importovat z JSON</string>
+    <string name="backup_saved">Záloha uložena</string>
+    <string name="backup_error">Chyba: %1$s</string>
+    <string name="import_error">Chyba importu: %1$s</string>
+    <string name="imported_summary">Naimportováno: %1$d záznamů, %2$d událostí</string>
+    <string name="read_error">Soubor se nepodařilo přečíst</string>
+
+    <string name="language_title">Jazyk</string>
+    <string name="language_value">Jazyk: %1$s</string>
+    <string name="language_system">Systémový</string>
+    <string name="language_choose_title">Vyberte jazyk</string>
+    <string name="current_label">Aktuální</string>
+
+    <string name="stats_title">Statistiky</string>
+    <string name="entries_stat_full">Záznamy v deníku</string>
+
+    <string name="map_title">Mapa života</string>
+    <string name="decades_tab">10 let</string>
+    <string name="year_tab">Rok</string>
+    <string name="map_header_bd">NAR</string>
+    <string name="years_short">r.</string>
+    <string name="weeks_short">týd.</string>
+    <string name="lived_label">Prožito</string>
+    <string name="entries_label">Záznamy</string>
+    <string name="birthday_event">Narozeniny</string>
+    <string name="no_events_entries">Žádné události ani záznamy</string>
+    <string name="more_extra">+%1$d dalších…</string>
+    <string name="birth_label">narození</string>
+    <string name="future_suffix">%1$s · budoucnost</string>
+    <string name="year_label">Rok %1$d</string>
+    <string name="prev_year_desc">Předchozí rok</string>
+    <string name="next_year_desc">Následující rok</string>
+    <string name="to_current_year">Na aktuální rok</string>
+    <string name="future_label">Budoucnost</string>
+    <string name="no_entries">Žádné záznamy</string>
+    <string name="today_label">dnes</string>
+    <string name="choose_year">Vyberte rok</string>
+    <string name="back_to_decades_desc">Zpět na desetiletí</string>
+    <string name="week_number_label">Týden %1$d</string>
+    <string name="open_week">Otevřít týden</string>
+    <string name="add_entry">Přidat záznam</string>
+
+    <string name="week_empty">Tento týden nic není</string>
+    <string name="today_desc">Dnes</string>
+    <string name="prev_week_desc">Předchozí týden</string>
+    <string name="next_week_desc">Následující týden</string>
+    <string name="events_section">Události</string>
+    <string name="entries_section">Záznamy</string>
+
+    <string name="events_title">Události</string>
+    <string name="add_event_desc">Přidat událost</string>
+    <string name="no_events">Zatím žádné události</string>
+
+    <string name="diary_title">Deník</string>
+    <string name="new_entry_desc">Nový záznam</string>
+    <string name="search_hint">Hledat v textu…</string>
+    <string name="no_entries_yet">Zatím žádné záznamy</string>
+    <string name="nothing_found">Nic nenalezeno</string>
+
+    <string name="new_event">Nová událost</string>
+    <string name="edit_event">Upravit událost</string>
+    <string name="event_title">Název</string>
+    <string name="date_label">Datum: %1$s</string>
+    <string name="new_entry_dialog">Nový záznam</string>
+    <string name="edit_entry_dialog">Upravit záznam</string>
+
+    <plurals name="years">
+        <item quantity="one">rok</item>
+        <item quantity="few">roky</item>
+        <item quantity="many">let</item>
+        <item quantity="other">let</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">týden</item>
+        <item quantity="few">týdny</item>
+        <item quantity="many">týdnů</item>
+        <item quantity="other">týdnů</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">den</item>
+        <item quantity="few">dny</item>
+        <item quantity="many">dnů</item>
+        <item quantity="other">dnů</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">měsíc</item>
+        <item quantity="few">měsíce</item>
+        <item quantity="many">měsíců</item>
+        <item quantity="other">měsíců</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="one">záznam</item>
+        <item quantity="few">záznamy</item>
+        <item quantity="many">záznamů</item>
+        <item quantity="other">záznamů</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>leden</item>
+        <item>únor</item>
+        <item>březen</item>
+        <item>duben</item>
+        <item>květen</item>
+        <item>červen</item>
+        <item>červenec</item>
+        <item>srpen</item>
+        <item>září</item>
+        <item>říjen</item>
+        <item>listopad</item>
+        <item>prosinec</item>
+    </string-array>
+</resources>

@@ -24,9 +24,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Entry
 import com.prev85.lifecalendar.data.db.Event
 import com.prev85.lifecalendar.ui.common.BIRTHDAY_COLOR_ARGB
@@ -57,7 +59,7 @@ fun WeekGridScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Карта жизни") })
+            TopAppBar(title = { Text(stringResource(R.string.map_title)) })
         }
     ) { padding ->
         Column(
@@ -80,14 +82,14 @@ fun WeekGridScreen(
                         onClick = { viewMode = MapViewMode.DECADES },
                         shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2)
                     ) {
-                        Text("10 лет")
+                        Text(stringResource(R.string.decades_tab))
                     }
                     SegmentedButton(
                         selected = viewMode == MapViewMode.YEAR,
                         onClick = { viewMode = MapViewMode.YEAR },
                         shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2)
                     ) {
-                        Text("Год")
+                        Text(stringResource(R.string.year_tab))
                     }
                 }
                 Spacer(Modifier.weight(1f))
@@ -98,7 +100,7 @@ fun WeekGridScreen(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text("Задайте дату рождения в настройках")
+                    Text(stringResource(R.string.set_birth_hint))
                 }
                 viewMode == MapViewMode.DECADES -> {
                     val range = decadeRange
@@ -170,7 +172,9 @@ fun WeekGridScreen(
         WeekDetailSheet(
             monday = monday,
             weekNumber = state.weekKeys.indexOf(monday) + 1,
-            events = state.eventsByWeek[wk].orEmpty() + listOfNotNull(birthdayEvent(state, monday)),
+            events = state.eventsByWeek[wk].orEmpty() + listOfNotNull(
+                birthdayEvent(state, monday, stringResource(R.string.birthday_event))
+            ),
             entries = state.entriesByWeek[wk].orEmpty(),
             onDismiss = { sheetMonday = null },
             onAddEntry = {
@@ -202,8 +206,11 @@ private fun HeaderRow(birth: LocalDate, state: WeekGridViewModel.UiState) {
     val percent = if (total > 0) lived * 100 / total else 0
 
     Text(
-        text = "ДР ${Dates.ddmmyyyy(birth)} · $years г. $weeks нед. · Прожито $percent% · " +
-            "Записей: ${state.entriesByWeek.size} нед.",
+        text = stringResource(R.string.map_header_bd) + " ${Dates.ddmmyyyy(birth)} · $years " +
+            stringResource(R.string.years_short) + " $weeks " + stringResource(R.string.weeks_short) +
+            " · " + stringResource(R.string.lived_label) + " $percent% · " +
+            stringResource(R.string.entries_label) + ": ${state.entriesByWeek.size} " +
+            stringResource(R.string.weeks_short),
         style = MaterialTheme.typography.labelSmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         modifier = Modifier
@@ -215,13 +222,14 @@ private fun HeaderRow(birth: LocalDate, state: WeekGridViewModel.UiState) {
 private fun birthdayEvent(
     state: WeekGridViewModel.UiState,
     monday: LocalDate,
+    title: String,
 ): Event? {
     val birth = state.birthDate ?: return null
     return if (!birth.isBefore(monday) && !birth.isAfter(monday.plusDays(6))) {
         Event(
             id = -1L,
             date = Dates.iso(birth),
-            title = "День рождения",
+            title = title,
             color = BIRTHDAY_COLOR_ARGB
         )
     } else null

@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.prev85.lifecalendar.LifeCalendarApp
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.BackupManager
 import com.prev85.lifecalendar.util.Dates
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -106,8 +107,8 @@ class ProfileViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             _settings.update { it.copy(busy = true) }
             runCatching { backup.exportTo(uri) }
-                .onSuccess { _settings.update { it.copy(message = "Бэкап сохранён") } }
-                .onFailure { e -> _settings.update { it.copy(message = "Ошибка: ${e.message}") } }
+                .onSuccess { _settings.update { it.copy(message = ctx.getString(R.string.backup_saved)) } }
+                .onFailure { e -> _settings.update { it.copy(message = ctx.getString(R.string.backup_error, e.message ?: "")) } }
             _settings.update { it.copy(busy = false) }
         }
     }
@@ -117,7 +118,7 @@ class ProfileViewModel(app: Application) : AndroidViewModel(app) {
             _settings.update { it.copy(busy = true) }
             runCatching { backup.importFrom(uri) }
                 .onSuccess { msg -> _settings.update { it.copy(message = msg) } }
-                .onFailure { e -> _settings.update { it.copy(message = "Ошибка импорта: ${e.message}") } }
+                .onFailure { e -> _settings.update { it.copy(message = ctx.getString(R.string.import_error, e.message ?: "")) } }
             _settings.update { it.copy(busy = false) }
         }
     }

@@ -32,10 +32,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Event
 import com.prev85.lifecalendar.ui.common.BIRTHDAY_COLOR
 import com.prev85.lifecalendar.ui.common.EventDialog
@@ -55,12 +57,12 @@ fun EventsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("События") }
+                title = { Text(stringResource(R.string.events_title)) }
             )
         },
         floatingActionButton = {
             FloatingActionButton(onClick = { adding = true }) {
-                Icon(Icons.Filled.Add, contentDescription = "Добавить событие")
+                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_event_desc))
             }
         }
     ) { padding ->
@@ -71,7 +73,7 @@ fun EventsScreen(
                     .padding(padding),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Событий пока нет")
+                Text(stringResource(R.string.no_events))
             }
         } else {
             LazyColumn(
@@ -99,7 +101,7 @@ fun EventsScreen(
                                 modifier = Modifier.padding(start = 12.dp)
                             ) {
                                 Text(
-                                    text = "День рождения",
+                                    text = stringResource(R.string.birthday_event),
                                     style = MaterialTheme.typography.bodyLarge,
                                     fontWeight = FontWeight.Medium
                                 )
@@ -152,7 +154,7 @@ fun EventsScreen(
                         IconButton(onClick = { viewModel.deleteEvent(event) }) {
                             Icon(
                                 Icons.Filled.Delete,
-                                contentDescription = "Удалить",
+                                contentDescription = stringResource(R.string.delete),
                                 tint = MaterialTheme.colorScheme.outline
                             )
                         }

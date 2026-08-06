@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Календарь жизни</string>
+
+    <string name="back">Назад</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="birthday">День рождения</string>
+
+    <string name="tab_today">Сегодня</string>
+    <string name="tab_map">Карта</string>
+    <string name="tab_diary">Дневник</string>
+    <string name="tab_events">События</string>
+    <string name="tab_profile">Профиль</string>
+
+    <string name="app_welcome_title">Календарь жизни</string>
+    <string name="welcome_message">Добро пожаловать! Чтобы построить календарь жизни в неделях, укажите вашу дату рождения.</string>
+    <string name="birth_date_label">Дата рождения: %1$s</string>
+    <string name="pick_birth_date">Выбрать дату рождения</string>
+    <string name="change_date">Изменить дату</string>
+    <string name="continue_action">Продолжить</string>
+
+    <string name="profile_title">Профиль</string>
+    <string name="set_birth_hint">Задайте дату рождения в настройках</string>
+    <string name="age">Возраст</string>
+    <string name="born_prefix">Родился:</string>
+    <string name="allotted_label">отведено</string>
+    <string name="lived_percent_title">Прожито</string>
+    <string name="lived_weeks_of">%1$d из %2$d</string>
+    <string name="weeks_left_label">осталось</string>
+    <string name="birthdays_stat">Дней рождений</string>
+    <string name="entries_stat">Записей</string>
+    <string name="events_stat">Событий</string>
+    <string name="birth_date">Дата рождения</string>
+    <string name="not_set">не задана</string>
+    <string name="change_action">Изменить</string>
+    <string name="lifespan">Длительность жизни:</string>
+    <string name="backup_title">Бэкап</string>
+    <string name="backup_desc">Все данные (записи, события, настройки) сохраняются в один JSON-файл.</string>
+    <string name="export_json">Экспорт в JSON</string>
+    <string name="import_json">Импорт из JSON</string>
+    <string name="backup_saved">Бэкап сохранён</string>
+    <string name="backup_error">Ошибка: %1$s</string>
+    <string name="import_error">Ошибка импорта: %1$s</string>
+    <string name="imported_summary">Импортировано: записей %1$d, событий %2$d</string>
+    <string name="read_error">Не удалось прочитать файл</string>
+
+    <string name="language_title">Язык</string>
+    <string name="language_value">Язык: %1$s</string>
+    <string name="language_system">Системный</string>
+    <string name="language_choose_title">Выберите язык</string>
+    <string name="current_label">Текущий</string>
+
+    <string name="stats_title">Статистика</string>
+    <string name="entries_stat_full">Записей в дневнике</string>
+
+    <string name="map_title">Карта жизни</string>
+    <string name="decades_tab">10 лет</string>
+    <string name="year_tab">Год</string>
+    <string name="map_header_bd">ДР</string>
+    <string name="years_short">г.</string>
+    <string name="weeks_short">нед.</string>
+    <string name="lived_label">Прожито</string>
+    <string name="entries_label">Записей</string>
+    <string name="birthday_event">День рождения</string>
+    <string name="no_events_entries">Нет событий и записей</string>
+    <string name="more_extra">+%1$d ещё…</string>
+    <string name="birth_label">рождение</string>
+    <string name="future_suffix">%1$s · будущее</string>
+    <string name="year_label">Год %1$d</string>
+    <string name="prev_year_desc">Прошлый год</string>
+    <string name="next_year_desc">Следующий год</string>
+    <string name="to_current_year">К текущему году</string>
+    <string name="future_label">Будущее</string>
+    <string name="no_entries">Нет записей</string>
+    <string name="today_label">сегодня</string>
+    <string name="choose_year">Выберите год</string>
+    <string name="back_to_decades_desc">К десятилетиям</string>
+    <string name="week_number_label">Неделя %1$d</string>
+    <string name="open_week">Открыть неделю</string>
+    <string name="add_entry">Добавить запись</string>
+
+    <string name="week_empty">За неделю ничего нет</string>
+    <string name="today_desc">Сегодня</string>
+    <string name="prev_week_desc">Предыдущая неделя</string>
+    <string name="next_week_desc">Следующая неделя</string>
+    <string name="events_section">События</string>
+    <string name="entries_section">Записи</string>
+
+    <string name="events_title">События</string>
+    <string name="add_event_desc">Добавить событие</string>
+    <string name="no_events">Событий пока нет</string>
+
+    <string name="diary_title">Дневник</string>
+    <string name="new_entry_desc">Новая запись</string>
+    <string name="search_hint">Поиск по тексту…</string>
+    <string name="no_entries_yet">Записей пока нет</string>
+    <string name="nothing_found">Ничего не найдено</string>
+
+    <string name="new_event">Новое событие</string>
+    <string name="edit_event">Редактировать событие</string>
+    <string name="event_title">Название</string>
+    <string name="date_label">Дата: %1$s</string>
+    <string name="new_entry_dialog">Новая запись</string>
+    <string name="edit_entry_dialog">Редактировать запись</string>
+
+    <plurals name="years">
+        <item quantity="one">год</item>
+        <item quantity="few">года</item>
+        <item quantity="many">лет</item>
+        <item quantity="other">лет</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">неделя</item>
+        <item quantity="few">недели</item>
+        <item quantity="many">недель</item>
+        <item quantity="other">недели</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">день</item>
+        <item quantity="few">дня</item>
+        <item quantity="many">дней</item>
+        <item quantity="other">дня</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">месяц</item>
+        <item quantity="few">месяца</item>
+        <item quantity="many">месяцев</item>
+        <item quantity="other">месяца</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="one">запись</item>
+        <item quantity="few">записи</item>
+        <item quantity="many">записей</item>
+        <item quantity="other">записи</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Май</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
+    </string-array>
+</resources>

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Каляндар жыцця</string>
+
+    <string name="back">Назад</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Адмена</string>
+    <string name="save">Захаваць</string>
+    <string name="delete">Выдаліць</string>
+    <string name="birthday">Дзень нараджэння</string>
+
+    <string name="tab_today">Сёння</string>
+    <string name="tab_map">Карта</string>
+    <string name="tab_diary">Дзённік</string>
+    <string name="tab_events">Падзеі</string>
+    <string name="tab_profile">Профіль</string>
+
+    <string name="app_welcome_title">Каляндар жыцця</string>
+    <string name="welcome_message">Сардэчна запрашаем! Каб пабудаваць каляндар жыцця ў тыднях, укажыце дату вашага нараджэння.</string>
+    <string name="birth_date_label">Дата нараджэння: %1$s</string>
+    <string name="pick_birth_date">Выбраць дату нараджэння</string>
+    <string name="change_date">Змяніць дату</string>
+    <string name="continue_action">Працягнуць</string>
+
+    <string name="profile_title">Профіль</string>
+    <string name="set_birth_hint">Задайце дату нараджэння ў наладах</string>
+    <string name="age">Узрост</string>
+    <string name="born_prefix">Нарадзіўся:</string>
+    <string name="allotted_label">адведзена</string>
+    <string name="lived_percent_title">Пражыта</string>
+    <string name="lived_weeks_of">%1$d з %2$d</string>
+    <string name="weeks_left_label">засталося</string>
+    <string name="birthdays_stat">Дзён нараджэнняў</string>
+    <string name="entries_stat">Запісаў</string>
+    <string name="events_stat">Падзей</string>
+    <string name="birth_date">Дата нараджэння</string>
+    <string name="not_set">не зададзена</string>
+    <string name="change_action">Змяніць</string>
+    <string name="lifespan">Працягласць жыцця:</string>
+    <string name="backup_title">Рэзервовая копія</string>
+    <string name="backup_desc">Усе даныя (запісы, падзеі, налады) захоўваюцца ў адным JSON-файле.</string>
+    <string name="export_json">Экспарт у JSON</string>
+    <string name="import_json">Імпарт з JSON</string>
+    <string name="backup_saved">Рэзервовую копію захавана</string>
+    <string name="backup_error">Памылка: %1$s</string>
+    <string name="import_error">Памылка імпарту: %1$s</string>
+    <string name="imported_summary">Імпартавана: запісаў %1$d, падзей %2$d</string>
+    <string name="read_error">Не ўдалося прачытаць файл</string>
+
+    <string name="language_title">Мова</string>
+    <string name="language_value">Мова: %1$s</string>
+    <string name="language_system">Сістэмная</string>
+    <string name="language_choose_title">Выберыце мову</string>
+    <string name="current_label">Бягучы</string>
+
+    <string name="stats_title">Статыстыка</string>
+    <string name="entries_stat_full">Запісаў у дзённіку</string>
+
+    <string name="map_title">Карта жыцця</string>
+    <string name="decades_tab">10 гадоў</string>
+    <string name="year_tab">Год</string>
+    <string name="map_header_bd">ДН</string>
+    <string name="years_short">г.</string>
+    <string name="weeks_short">тыд.</string>
+    <string name="lived_label">Пражыта</string>
+    <string name="entries_label">Запісаў</string>
+    <string name="birthday_event">Дзень нараджэння</string>
+    <string name="no_events_entries">Няма падзей і запісаў</string>
+    <string name="more_extra">+%1$d яшчэ…</string>
+    <string name="birth_label">нараджэнне</string>
+    <string name="future_suffix">%1$s · будучыня</string>
+    <string name="year_label">Год %1$d</string>
+    <string name="prev_year_desc">Папярэдні год</string>
+    <string name="next_year_desc">Наступны год</string>
+    <string name="to_current_year">Да бягучага года</string>
+    <string name="future_label">Будучыня</string>
+    <string name="no_entries">Няма запісаў</string>
+    <string name="today_label">сёння</string>
+    <string name="choose_year">Выберыце год</string>
+    <string name="back_to_decades_desc">Да дзесяцігоддзяў</string>
+    <string name="week_number_label">Тыдзень %1$d</string>
+    <string name="open_week">Адкрыць тыдзень</string>
+    <string name="add_entry">Дадаць запіс</string>
+
+    <string name="week_empty">За тыдзень нічога няма</string>
+    <string name="today_desc">Сёння</string>
+    <string name="prev_week_desc">Папярэдні тыдзень</string>
+    <string name="next_week_desc">Наступны тыдзень</string>
+    <string name="events_section">Падзеі</string>
+    <string name="entries_section">Запісы</string>
+
+    <string name="events_title">Падзеі</string>
+    <string name="add_event_desc">Дадаць падзею</string>
+    <string name="no_events">Падзей пакуль няма</string>
+
+    <string name="diary_title">Дзённік</string>
+    <string name="new_entry_desc">Новы запіс</string>
+    <string name="search_hint">Пошук па тэксце…</string>
+    <string name="no_entries_yet">Запісаў пакуль няма</string>
+    <string name="nothing_found">Нічога не знойдзена</string>
+
+    <string name="new_event">Новая падзея</string>
+    <string name="edit_event">Рэдагаваць падзею</string>
+    <string name="event_title">Назва</string>
+    <string name="date_label">Дата: %1$s</string>
+    <string name="new_entry_dialog">Новы запіс</string>
+    <string name="edit_entry_dialog">Рэдагаваць запіс</string>
+
+    <plurals name="years">
+        <item quantity="one">год</item>
+        <item quantity="few">гады</item>
+        <item quantity="many">гадоў</item>
+        <item quantity="other">гадоў</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">тыдзень</item>
+        <item quantity="few">тыдні</item>
+        <item quantity="many">тыдняў</item>
+        <item quantity="other">тыдні</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">дзень</item>
+        <item quantity="few">дні</item>
+        <item quantity="many">дзён</item>
+        <item quantity="other">дні</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">месяц</item>
+        <item quantity="few">месяцы</item>
+        <item quantity="many">месяцаў</item>
+        <item quantity="other">месяцы</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="one">запіс</item>
+        <item quantity="few">запісы</item>
+        <item quantity="many">запісаў</item>
+        <item quantity="other">запісы</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>Студзень</item>
+        <item>Люты</item>
+        <item>Сакавік</item>
+        <item>Красавік</item>
+        <item>Травень</item>
+        <item>Чэрвень</item>
+        <item>Ліпень</item>
+        <item>Жнівень</item>
+        <item>Верасень</item>
+        <item>Кастрычнік</item>
+        <item>Лістапад</item>
+        <item>Снежань</item>
+    </string-array>
+</resources>

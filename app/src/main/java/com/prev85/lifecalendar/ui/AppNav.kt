@@ -23,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -31,6 +32,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.prev85.lifecalendar.LifeCalendarApp
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.ui.entries.EntriesScreen
 import com.prev85.lifecalendar.ui.events.EventsScreen
 import com.prev85.lifecalendar.ui.grid.WeekGridScreen
@@ -89,7 +91,7 @@ fun AppNav() {
             if (showBottomBar) {
                 NavigationBar {
                     TabItem(
-                        label = "Сегодня",
+                        label = stringResource(R.string.tab_today),
                         icon = Icons.Filled.Today,
                         selected = currentRoute == Routes.TODAY,
                         onSelect = {
@@ -101,7 +103,7 @@ fun AppNav() {
                         }
                     )
                     TabItem(
-                        label = "Карта",
+                        label = stringResource(R.string.tab_map),
                         icon = Icons.Filled.Map,
                         selected = currentRoute == Routes.MAP,
                         onSelect = {
@@ -113,7 +115,7 @@ fun AppNav() {
                         }
                     )
                     TabItem(
-                        label = "Дневник",
+                        label = stringResource(R.string.tab_diary),
                         icon = Icons.AutoMirrored.Filled.List,
                         selected = currentRoute == Routes.ENTRIES,
                         onSelect = {
@@ -125,7 +127,7 @@ fun AppNav() {
                         }
                     )
                     TabItem(
-                        label = "События",
+                        label = stringResource(R.string.tab_events),
                         icon = Icons.Filled.Event,
                         selected = currentRoute == Routes.EVENTS,
                         onSelect = {
@@ -137,7 +139,7 @@ fun AppNav() {
                         }
                     )
                     TabItem(
-                        label = "Профиль",
+                        label = stringResource(R.string.tab_profile),
                         icon = Icons.Filled.Person,
                         selected = currentRoute == Routes.PROFILE,
                         onSelect = {

@@ -9,6 +9,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import com.prev85.lifecalendar.R
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
@@ -18,7 +20,6 @@ import java.time.ZoneOffset
 fun AppDatePickerDialog(
     initialDate: LocalDate,
     maxDate: LocalDate? = null,
-    confirmLabel: String = "ОК",
     onDismiss: () -> Unit,
     onConfirm: (LocalDate) -> Unit,
 ) {
@@ -46,10 +47,10 @@ fun AppDatePickerDialog(
                         onConfirm(Instant.ofEpochMilli(millis).atZone(ZoneOffset.UTC).toLocalDate())
                     }
                 }
-            ) { Text(confirmLabel) }
+            ) { Text(stringResource(R.string.ok)) }
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) { Text("Отмена") }
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
         }
     ) {
         DatePicker(state = dpState)

@@ -27,7 +27,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Event
 import com.prev85.lifecalendar.util.Dates
 import java.time.Instant
@@ -60,14 +62,14 @@ fun EventDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(if (event == null) "Новое событие" else "Редактировать событие") },
+        title = { Text(if (event == null) stringResource(R.string.new_event) else stringResource(R.string.edit_event)) },
         text = {
             Column {
                 OutlinedTextField(
                     value = title,
                     onValueChange = { title = it },
                     modifier = Modifier.fillMaxWidth(),
-                    label = { Text("Название") }
+                    label = { Text(stringResource(R.string.event_title)) }
                 )
                 Row(
                     modifier = Modifier
@@ -93,7 +95,7 @@ fun EventDialog(
                     }
                 }
                 TextButton(onClick = { showDatePicker = true }) {
-                    Text("Дата: ${Dates.ddmmyyyy(date)}")
+                    Text(stringResource(R.string.date_label, Dates.ddmmyyyy(date)))
                 }
             }
         },
@@ -103,10 +105,10 @@ fun EventDialog(
                     val t = title.trim()
                     if (t.isNotEmpty()) onSave(date, t, color)
                 }
-            ) { Text("Сохранить") }
+            ) { Text(stringResource(R.string.save)) }
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) { Text("Отмена") }
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) }
         }
     )
 
@@ -124,10 +126,10 @@ fun EventDialog(
                         }
                         showDatePicker = false
                     }
-                ) { Text("ОК") }
+                ) { Text(stringResource(R.string.ok)) }
             },
             dismissButton = {
-                TextButton(onClick = { showDatePicker = false }) { Text("Отмена") }
+                TextButton(onClick = { showDatePicker = false }) { Text(stringResource(R.string.cancel)) }
             }
         ) {
             DatePicker(state = dpState)

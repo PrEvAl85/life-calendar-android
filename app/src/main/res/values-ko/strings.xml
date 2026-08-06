@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">생명 달력</string>
+
+    <string name="back">뒤로</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="save">저장</string>
+    <string name="delete">삭제</string>
+    <string name="birthday">생일</string>
+
+    <string name="tab_today">오늘</string>
+    <string name="tab_map">지도</string>
+    <string name="tab_diary">일기</string>
+    <string name="tab_events">이벤트</string>
+    <string name="tab_profile">프로필</string>
+
+    <string name="app_welcome_title">생명 달력</string>
+    <string name="welcome_message">환영합니다! 주 단위로 생명 달력을 만들려면 생년월일을 입력하세요.</string>
+    <string name="birth_date_label">생년월일: %1$s</string>
+    <string name="pick_birth_date">생년월일 선택</string>
+    <string name="change_date">날짜 변경</string>
+    <string name="continue_action">계속</string>
+
+    <string name="profile_title">프로필</string>
+    <string name="set_birth_hint">설정에서 생년월일을 지정하세요</string>
+    <string name="age">나이</string>
+    <string name="born_prefix">출생:</string>
+    <string name="allotted_label">할당</string>
+    <string name="lived_percent_title">삶</string>
+    <string name="lived_weeks_of">%1$d / %2$d</string>
+    <string name="weeks_left_label">남음</string>
+    <string name="birthdays_stat">생일</string>
+    <string name="entries_stat">기록</string>
+    <string name="events_stat">이벤트</string>
+    <string name="birth_date">생년월일</string>
+    <string name="not_set">지정되지 않음</string>
+    <string name="change_action">변경</string>
+    <string name="lifespan">수명:</string>
+    <string name="backup_title">백업</string>
+    <string name="backup_desc">모든 데이터(기록, 이벤트, 설정)는 하나의 JSON 파일로 저장됩니다.</string>
+    <string name="export_json">JSON으로 내보내기</string>
+    <string name="import_json">JSON에서 가져오기</string>
+    <string name="backup_saved">백업이 저장되었습니다</string>
+    <string name="backup_error">오류: %1$s</string>
+    <string name="import_error">가져오기 오류: %1$s</string>
+    <string name="imported_summary">가져옴: 기록 %1$d개, 이벤트 %2$d개</string>
+    <string name="read_error">파일을 읽을 수 없습니다</string>
+
+    <string name="language_title">언어</string>
+    <string name="language_value">언어: %1$s</string>
+    <string name="language_system">시스템 기본</string>
+    <string name="language_choose_title">언어 선택</string>
+    <string name="current_label">현재</string>
+
+    <string name="stats_title">통계</string>
+    <string name="entries_stat_full">일기 기록</string>
+
+    <string name="map_title">생명 지도</string>
+    <string name="decades_tab">10년</string>
+    <string name="year_tab">년</string>
+    <string name="map_header_bd">출생</string>
+    <string name="years_short">년</string>
+    <string name="weeks_short">주</string>
+    <string name="lived_label">삶</string>
+    <string name="entries_label">기록</string>
+    <string name="birthday_event">생일</string>
+    <string name="no_events_entries">이벤트나 기록이 없습니다</string>
+    <string name="more_extra">+%1$d개 더…</string>
+    <string name="birth_label">출생</string>
+    <string name="future_suffix">%1$s · 미래</string>
+    <string name="year_label">%1$d년</string>
+    <string name="prev_year_desc">이전 해</string>
+    <string name="next_year_desc">다음 해</string>
+    <string name="to_current_year">올해로</string>
+    <string name="future_label">미래</string>
+    <string name="no_entries">기록 없음</string>
+    <string name="today_label">오늘</string>
+    <string name="choose_year">연도 선택</string>
+    <string name="back_to_decades_desc">10년 보기로 돌아가기</string>
+    <string name="week_number_label">%1$d주</string>
+    <string name="open_week">주 열기</string>
+    <string name="add_entry">기록 추가</string>
+
+    <string name="week_empty">이번 주에는 내용이 없습니다</string>
+    <string name="today_desc">오늘</string>
+    <string name="prev_week_desc">이전 주</string>
+    <string name="next_week_desc">다음 주</string>
+    <string name="events_section">이벤트</string>
+    <string name="entries_section">기록</string>
+
+    <string name="events_title">이벤트</string>
+    <string name="add_event_desc">이벤트 추가</string>
+    <string name="no_events">아직 이벤트가 없습니다</string>
+
+    <string name="diary_title">일기</string>
+    <string name="new_entry_desc">새 기록</string>
+    <string name="search_hint">텍스트 검색…</string>
+    <string name="no_entries_yet">아직 기록이 없습니다</string>
+    <string name="nothing_found">결과 없음</string>
+
+    <string name="new_event">새 이벤트</string>
+    <string name="edit_event">이벤트 편집</string>
+    <string name="event_title">제목</string>
+    <string name="date_label">날짜: %1$s</string>
+    <string name="new_entry_dialog">새 기록</string>
+    <string name="edit_entry_dialog">기록 편집</string>
+
+    <plurals name="years">
+        <item quantity="other">년</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="other">주</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">일</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="other">개월</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="other">개</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>1월</item>
+        <item>2월</item>
+        <item>3월</item>
+        <item>4월</item>
+        <item>5월</item>
+        <item>6월</item>
+        <item>7월</item>
+        <item>8월</item>
+        <item>9월</item>
+        <item>10월</item>
+        <item>11월</item>
+        <item>12월</item>
+    </string-array>
+</resources>

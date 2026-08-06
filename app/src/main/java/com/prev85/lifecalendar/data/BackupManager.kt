@@ -2,6 +2,7 @@ package com.prev85.lifecalendar.data
 
 import android.content.Context
 import android.net.Uri
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.AppDatabase
 import androidx.room.withTransaction
 import com.prev85.lifecalendar.data.db.Entry
@@ -54,7 +55,7 @@ class BackupManager(
 
     suspend fun importFrom(uri: Uri): String {
         val text = context.contentResolver.openInputStream(uri)?.use { it.readBytes().toString(Charsets.UTF_8) }
-            ?: error("Не удалось прочитать файл")
+            ?: error(context.getString(R.string.read_error))
         val data = json.decodeFromString(BackupData.serializer(), text)
 
         db.withTransaction {
@@ -66,6 +67,6 @@ class BackupManager(
         if (data.birthDate != null) settings.setBirthDate(data.birthDate)
         settings.setLifespanYears(data.lifespanYears)
 
-        return "Импортировано: записей ${data.entries.size}, событий ${data.events.size}"
+        return context.getString(R.string.imported_summary, data.entries.size, data.events.size)
     }
 }

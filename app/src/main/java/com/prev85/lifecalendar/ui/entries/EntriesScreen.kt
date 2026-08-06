@@ -30,10 +30,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.prev85.lifecalendar.R
 import com.prev85.lifecalendar.data.db.Entry
 import com.prev85.lifecalendar.ui.common.EntryDialog
 import com.prev85.lifecalendar.util.Dates
@@ -56,11 +58,11 @@ fun EntriesScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Дневник") })
+            TopAppBar(title = { Text(stringResource(R.string.diary_title)) })
         },
         floatingActionButton = {
             FloatingActionButton(onClick = { adding = true }) {
-                Icon(Icons.Filled.Add, contentDescription = "Новая запись")
+                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.new_entry_desc))
             }
         }
     ) { padding ->
@@ -75,7 +77,7 @@ fun EntriesScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 8.dp),
-                placeholder = { Text("Поиск по тексту…") },
+                placeholder = { Text(stringResource(R.string.search_hint)) },
                 leadingIcon = {
                     Icon(Icons.Filled.Search, contentDescription = null)
                 },
@@ -89,8 +91,8 @@ fun EntriesScreen(
                 ) {
                     Text(
                         when {
-                            entries.isEmpty() -> "Записей пока нет"
-                            else -> "Ничего не найдено"
+                            entries.isEmpty() -> stringResource(R.string.no_entries_yet)
+                            else -> stringResource(R.string.nothing_found)
                         }
                     )
                 }
@@ -123,7 +125,7 @@ fun EntriesScreen(
                             IconButton(onClick = { viewModel.deleteEntry(entry) }) {
                                 Icon(
                                     Icons.Filled.Delete,
-                                    contentDescription = "Удалить",
+                                    contentDescription = stringResource(R.string.delete),
                                     tint = MaterialTheme.colorScheme.outline
                                 )
                             }

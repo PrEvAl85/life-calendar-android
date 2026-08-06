@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">人生カレンダー</string>
+
+    <string name="back">戻る</string>
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="save">保存</string>
+    <string name="delete">削除</string>
+    <string name="birthday">誕生日</string>
+
+    <string name="tab_today">今日</string>
+    <string name="tab_map">地図</string>
+    <string name="tab_diary">日記</string>
+    <string name="tab_events">イベント</string>
+    <string name="tab_profile">プロフィール</string>
+
+    <string name="app_welcome_title">人生カレンダー</string>
+    <string name="welcome_message">ようこそ！人生カレンダーを週単位で作成するには、誕生日を入力してください。</string>
+    <string name="birth_date_label">誕生日：%1$s</string>
+    <string name="pick_birth_date">誕生日を選択</string>
+    <string name="change_date">日付を変更</string>
+    <string name="continue_action">続行</string>
+
+    <string name="profile_title">プロフィール</string>
+    <string name="set_birth_hint">設定で誕生日を設定してください</string>
+    <string name="age">年齢</string>
+    <string name="born_prefix">生年月日：</string>
+    <string name="allotted_label">割り当て</string>
+    <string name="lived_percent_title">生きた時間</string>
+    <string name="lived_weeks_of">%1$d / %2$d</string>
+    <string name="weeks_left_label">残り</string>
+    <string name="birthdays_stat">誕生日</string>
+    <string name="entries_stat">記録</string>
+    <string name="events_stat">イベント</string>
+    <string name="birth_date">誕生日</string>
+    <string name="not_set">未設定</string>
+    <string name="change_action">変更</string>
+    <string name="lifespan">寿命：</string>
+    <string name="backup_title">バックアップ</string>
+    <string name="backup_desc">すべてのデータ（記録、イベント、設定）は1つのJSONファイルに保存されます。</string>
+    <string name="export_json">JSONにエクスポート</string>
+    <string name="import_json">JSONからインポート</string>
+    <string name="backup_saved">バックアップを保存しました</string>
+    <string name="backup_error">エラー：%1$s</string>
+    <string name="import_error">インポートエラー：%1$s</string>
+    <string name="imported_summary">インポート：記録%1$d件、イベント%2$d件</string>
+    <string name="read_error">ファイルを読み取れませんでした</string>
+
+    <string name="language_title">言語</string>
+    <string name="language_value">言語：%1$s</string>
+    <string name="language_system">システム標準</string>
+    <string name="language_choose_title">言語を選択</string>
+    <string name="current_label">現在</string>
+
+    <string name="stats_title">統計</string>
+    <string name="entries_stat_full">日記の記録</string>
+
+    <string name="map_title">人生マップ</string>
+    <string name="decades_tab">10年</string>
+    <string name="year_tab">年</string>
+    <string name="map_header_bd">誕生日</string>
+    <string name="years_short">年</string>
+    <string name="weeks_short">週</string>
+    <string name="lived_label">生きた時間</string>
+    <string name="entries_label">記録</string>
+    <string name="birthday_event">誕生日</string>
+    <string name="no_events_entries">イベントや記録はありません</string>
+    <string name="more_extra">他+%1$d件…</string>
+    <string name="birth_label">誕生</string>
+    <string name="future_suffix">%1$s・未来</string>
+    <string name="year_label">%1$d年</string>
+    <string name="prev_year_desc">前の年</string>
+    <string name="next_year_desc">次の年</string>
+    <string name="to_current_year">今年へ</string>
+    <string name="future_label">未来</string>
+    <string name="no_entries">記録なし</string>
+    <string name="today_label">今日</string>
+    <string name="choose_year">年を選択</string>
+    <string name="back_to_decades_desc">10年表示に戻る</string>
+    <string name="week_number_label">第%1$d週</string>
+    <string name="open_week">週を開く</string>
+    <string name="add_entry">記録を追加</string>
+
+    <string name="week_empty">今週は何もありません</string>
+    <string name="today_desc">今日</string>
+    <string name="prev_week_desc">前の週</string>
+    <string name="next_week_desc">次の週</string>
+    <string name="events_section">イベント</string>
+    <string name="entries_section">記録</string>
+
+    <string name="events_title">イベント</string>
+    <string name="add_event_desc">イベントを追加</string>
+    <string name="no_events">イベントはまだありません</string>
+
+    <string name="diary_title">日記</string>
+    <string name="new_entry_desc">新しい記録</string>
+    <string name="search_hint">テキストを検索…</string>
+    <string name="no_entries_yet">記録はまだありません</string>
+    <string name="nothing_found">見つかりませんでした</string>
+
+    <string name="new_event">新しいイベント</string>
+    <string name="edit_event">イベントを編集</string>
+    <string name="event_title">タイトル</string>
+    <string name="date_label">日付：%1$s</string>
+    <string name="new_entry_dialog">新しい記録</string>
+    <string name="edit_entry_dialog">記録を編集</string>
+
+    <plurals name="years">
+        <item quantity="other">年</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="other">週</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">日</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="other">ヶ月</item>
+    </plurals>
+    <plurals name="entries">
+        <item quantity="other">件</item>
+    </plurals>
+
+    <string-array name="month_names">
+        <item>1月</item>
+        <item>2月</item>
+        <item>3月</item>
+        <item>4月</item>
+        <item>5月</item>
+        <item>6月</item>
+        <item>7月</item>
+        <item>8月</item>
+        <item>9月</item>
+        <item>10月</item>
+        <item>11月</item>
+        <item>12月</item>
+    </string-array>
+</resources>
