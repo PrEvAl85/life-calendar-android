@@ -38,6 +38,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.prev85.lifecalendar.data.db.Entry
 import com.prev85.lifecalendar.data.db.Event
+import com.prev85.lifecalendar.ui.common.BIRTHDAY_COLOR_ARGB
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
 
@@ -102,7 +103,8 @@ fun YearOverview(
                 }
                 items(mondays, key = { Dates.iso(it) }) { monday ->
                     val wk = Dates.iso(monday)
-                    val events = state.eventsByWeek[wk].orEmpty()
+                    val events = state.eventsByWeek[wk].orEmpty().toMutableList()
+                    birthdayEvent(state, monday)?.let { events.add(it) }
                     val entries = state.entriesByWeek[wk].orEmpty()
                     val isToday = wk == state.todayKey
                     val isFuture = monday.isAfter(todayMonday)
@@ -148,6 +150,21 @@ private fun MonthHeader(name: String) {
             color = MaterialTheme.colorScheme.primary
         )
     }
+}
+
+private fun birthdayEvent(
+    state: WeekGridViewModel.UiState,
+    monday: LocalDate,
+): Event? {
+    val birth = state.birthDate ?: return null
+    return if (!birth.isBefore(monday) && !birth.isAfter(monday.plusDays(6))) {
+        Event(
+            id = -1L,
+            date = Dates.iso(birth),
+            title = "День рождения",
+            color = BIRTHDAY_COLOR_ARGB
+        )
+    } else null
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

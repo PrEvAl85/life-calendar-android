@@ -40,4 +40,12 @@ class WeekViewModel(app: Application, monday: String) : AndroidViewModel(app) {
     fun deleteEntry(entry: Entry) {
         viewModelScope.launch { ctx.database.entryDao().delete(entry) }
     }
+
+    fun updateEvent(event: Event) {
+        viewModelScope.launch { ctx.database.eventDao().update(event) }
+    }
+
+    fun deleteEvent(event: Event) {
+        viewModelScope.launch { ctx.database.eventDao().delete(event) }
+    }
 }

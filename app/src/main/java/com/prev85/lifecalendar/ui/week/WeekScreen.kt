@@ -46,7 +46,9 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.prev85.lifecalendar.LifeCalendarApp
 import com.prev85.lifecalendar.data.db.Entry
+import com.prev85.lifecalendar.data.db.Event
 import com.prev85.lifecalendar.ui.common.EntryDialog
+import com.prev85.lifecalendar.ui.common.EventDialog
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
 
@@ -71,6 +73,7 @@ fun WeekScreen(
     val entries by viewModel.entries.collectAsStateWithLifecycle()
     val events by viewModel.events.collectAsStateWithLifecycle()
     var editing by remember { mutableStateOf<Entry?>(null) }
+    var editingEvent by remember { mutableStateOf<Event?>(null) }
     var adding by remember { mutableStateOf(false) }
     val isFutureWeek = currentMonday.isAfter(Dates.mondayOf(LocalDate.now()))
 
@@ -131,23 +134,38 @@ fun WeekScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 16.dp, vertical = 6.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Box(
+                            Row(
                                 modifier = Modifier
-                                    .size(12.dp)
-                                    .background(Color(event.color), shape = CircleShape)
-                            )
-                            Column(modifier = Modifier.padding(start = 12.dp)) {
-                                Text(
-                                    text = event.title,
-                                    style = MaterialTheme.typography.bodyLarge,
-                                    fontWeight = FontWeight.Medium
+                                    .weight(1f)
+                                    .clickable { editingEvent = event },
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(12.dp)
+                                        .background(Color(event.color), shape = CircleShape)
                                 )
-                                Text(
-                                    text = Dates.ddmmyyyy(LocalDate.parse(event.date)),
-                                    style = MaterialTheme.typography.labelMedium,
-                                    color = MaterialTheme.colorScheme.outline
+                                Column(modifier = Modifier.padding(start = 12.dp)) {
+                                    Text(
+                                        text = event.title,
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                    Text(
+                                        text = Dates.ddmmyyyy(LocalDate.parse(event.date)),
+                                        style = MaterialTheme.typography.labelMedium,
+                                        color = MaterialTheme.colorScheme.outline
+                                    )
+                                }
+                            }
+                            IconButton(onClick = { viewModel.deleteEvent(event) }) {
+                                Icon(
+                                    Icons.Filled.Delete,
+                                    contentDescription = "Удалить",
+                                    tint = MaterialTheme.colorScheme.outline
                                 )
                             }
                         }
@@ -216,6 +234,17 @@ fun WeekScreen(
             onSave = { date, text ->
                 viewModel.updateEntry(entry.copy(date = Dates.iso(date), text = text))
                 editing = null
+            }
+        )
+    }
+    editingEvent?.let { event ->
+        EventDialog(
+            event = event,
+            defaultDate = LocalDate.parse(event.date),
+            onDismiss = { editingEvent = null },
+            onSave = { date, title, color ->
+                viewModel.updateEvent(event.copy(date = Dates.iso(date), title = title, color = color))
+                editingEvent = null
             }
         )
     }

@@ -50,6 +50,8 @@ fun WeekDetailSheet(
     onAddEntry: () -> Unit,
     onEditEntry: (Entry) -> Unit,
     onDeleteEntry: (Entry) -> Unit,
+    onEditEvent: (Event) -> Unit,
+    onDeleteEvent: (Event) -> Unit,
     onOpenWeek: () -> Unit,
 ) {
     ModalBottomSheet(onDismissRequest = onDismiss) {
@@ -95,24 +97,47 @@ fun WeekDetailSheet(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = 20.dp, vertical = 4.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Box(
+                        Row(
                             modifier = Modifier
-                                .size(12.dp)
-                                .background(Color(event.color), shape = CircleShape)
-                        )
-                        Column(modifier = Modifier.padding(start = 12.dp)) {
-                            Text(
-                                text = event.title,
-                                style = MaterialTheme.typography.bodyLarge,
-                                fontWeight = FontWeight.Medium
+                                .weight(1f)
+                                .then(
+                                    if (event.id >= 0) {
+                                        Modifier.clickable { onEditEvent(event) }
+                                    } else {
+                                        Modifier
+                                    }
+                                ),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(12.dp)
+                                    .background(Color(event.color), shape = CircleShape)
                             )
-                            Text(
-                                text = Dates.ddmmyyyy(LocalDate.parse(event.date)),
-                                style = MaterialTheme.typography.labelMedium,
-                                color = MaterialTheme.colorScheme.outline
-                            )
+                            Column(modifier = Modifier.padding(start = 12.dp)) {
+                                Text(
+                                    text = event.title,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    fontWeight = FontWeight.Medium
+                                )
+                                Text(
+                                    text = Dates.ddmmyyyy(LocalDate.parse(event.date)),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.outline
+                                )
+                            }
+                        }
+                        if (event.id >= 0) {
+                            IconButton(onClick = { onDeleteEvent(event) }) {
+                                Icon(
+                                    Icons.Filled.Delete,
+                                    contentDescription = "Удалить",
+                                    tint = MaterialTheme.colorScheme.outline
+                                )
+                            }
                         }
                     }
                 }

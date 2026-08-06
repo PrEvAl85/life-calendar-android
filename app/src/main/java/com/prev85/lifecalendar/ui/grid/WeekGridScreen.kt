@@ -28,7 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.prev85.lifecalendar.data.db.Entry
+import com.prev85.lifecalendar.data.db.Event
+import com.prev85.lifecalendar.ui.common.BIRTHDAY_COLOR_ARGB
 import com.prev85.lifecalendar.ui.common.EntryDialog
+import com.prev85.lifecalendar.ui.common.EventDialog
 import com.prev85.lifecalendar.util.Dates
 import java.time.LocalDate
 import java.time.Period
@@ -48,6 +51,7 @@ fun WeekGridScreen(
     var year by remember { mutableIntStateOf(LocalDate.now().year) }
     var sheetMonday by remember { mutableStateOf<LocalDate?>(null) }
     var editing by remember { mutableStateOf<Entry?>(null) }
+    var editingEvent by remember { mutableStateOf<Event?>(null) }
     var adding by remember { mutableStateOf(false) }
     var addDate by remember { mutableStateOf(LocalDate.now()) }
 
@@ -149,13 +153,24 @@ fun WeekGridScreen(
             }
         )
     }
+    editingEvent?.let { event ->
+        EventDialog(
+            event = event,
+            defaultDate = LocalDate.parse(event.date),
+            onDismiss = { editingEvent = null },
+            onSave = { date, title, color ->
+                viewModel.updateEvent(event.copy(date = Dates.iso(date), title = title, color = color))
+                editingEvent = null
+            }
+        )
+    }
 
     sheetMonday?.let { monday ->
         val wk = Dates.iso(monday)
         WeekDetailSheet(
             monday = monday,
             weekNumber = state.weekKeys.indexOf(monday) + 1,
-            events = state.eventsByWeek[wk].orEmpty(),
+            events = state.eventsByWeek[wk].orEmpty() + listOfNotNull(birthdayEvent(state, monday)),
             entries = state.entriesByWeek[wk].orEmpty(),
             onDismiss = { sheetMonday = null },
             onAddEntry = {
@@ -164,6 +179,8 @@ fun WeekGridScreen(
             },
             onEditEntry = { editing = it },
             onDeleteEntry = { viewModel.deleteEntry(it) },
+            onEditEvent = { if (it.id >= 0) editingEvent = it },
+            onDeleteEvent = { if (it.id >= 0) viewModel.deleteEvent(it) },
             onOpenWeek = {
                 sheetMonday = null
                 onWeekClick(wk)
@@ -193,4 +210,19 @@ private fun HeaderRow(birth: LocalDate, state: WeekGridViewModel.UiState) {
             .fillMaxWidth()
             .padding(horizontal = 12.dp, vertical = 4.dp)
     )
+}
+
+private fun birthdayEvent(
+    state: WeekGridViewModel.UiState,
+    monday: LocalDate,
+): Event? {
+    val birth = state.birthDate ?: return null
+    return if (!birth.isBefore(monday) && !birth.isAfter(monday.plusDays(6))) {
+        Event(
+            id = -1L,
+            date = Dates.iso(birth),
+            title = "День рождения",
+            color = BIRTHDAY_COLOR_ARGB
+        )
+    } else null
 }
